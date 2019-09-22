@@ -7,7 +7,7 @@ module.exports = {
         db.checkForUsername(username, email).then(count => {
             if(+count[0].count === 0) {
                 bcrypt.hash(password, 12).then(hash => {
-                    db.registerUser(username, hash, email, isAdmin).then(() => {
+                    db.register(username, hash, email, isAdmin).then(() => {
                         req.session.user = {
                             username,
                             email,
