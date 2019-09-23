@@ -3,6 +3,7 @@ import axios from 'axios'
 import {Link,Redirect} from 'react-router-dom'
 import{connect} from "react-redux"
 import {updateUser} from '../redux/userReducer'
+import '../styles/register.css'
 
  class Register extends Component{
     constructor(){
@@ -40,17 +41,25 @@ import {updateUser} from '../redux/userReducer'
             return <Redirect to= "/UserHome"/>
         }
         return(
-            <div>
+            <div >
                 {this.state.triedToClick === true ? <h1>Please Fill in all the Fields</h1> : null}
-                {this.state.serverErrorMessage !== "" ? <h1>{this.state.serverErrorMessage}</h1> : null}
-                <Link to = "/">
-                    <button>Home</button>
-                </Link>
-                <h1>Register</h1>
-                <input placeholder ="Username" name ="username" onChange={this.handleChange}></input>
-                <input placeholder="Password" name ="password" onChange={this.handleChange}></input>
-                <input placeholder ="Email" name ="email" onChange={this.handleChange}></input>
-                <button onClick ={this.handleRegister}>Register</button>
+                <nav>
+                    <Link to = "/">
+                        <button>Home</button>
+                    </Link>
+                </nav>
+                <div>
+                    {this.state.serverErrorMessage !== "" ? <li className ='errorMessage'>{this.state.serverErrorMessage}</li> : null}
+                </div>
+                <div className="regDiv">
+                    <div className='inputs'>
+                        <h1>Register</h1>
+                        <input placeholder ="Username" name ="username" onChange={this.handleChange}className="username"></input>
+                        <input placeholder="Password" name ="password" onChange={this.handleChange}className="password"></input>
+                        <input placeholder ="Email" name ="email" onChange={this.handleChange}className = "email"></input>
+                        <button onClick ={this.handleRegister} className="signUP">Register</button>
+                    </div>
+                </div>
                 
             </div>
         )

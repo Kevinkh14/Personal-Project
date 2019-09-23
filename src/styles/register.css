@@ -1,0 +1,43 @@
+.regDiv{
+    display: flex;
+    justify-content: center;
+}
+.inputs{
+    height: 85vh;
+    width:50vw;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   flex-direction: column;
+   justify-content: space-evenly;
+   background: white;
+}
+.username{
+    height:50px;
+    width:300px;
+    border-radius: 5px;
+}
+.password{
+    height:50px;
+    width:300px;
+    border-radius: 5px;
+}
+.email{
+    height:50px;
+    width:300px;
+    border-radius: 5px;
+}
+.signUP{
+    background-color:rgb(204, 49, 70);
+    border-color: rgb(204, 49, 70);
+    width: 200px;
+    height:50px;
+    color: white;
+    font-size:25px;
+    border-radius: 5px;
+}
+.errorMessage{
+    color:red;
+    list-style: none;
+}

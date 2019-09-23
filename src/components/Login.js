@@ -3,6 +3,7 @@ import {Link,Redirect} from 'react-router-dom'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {updateUser} from '../redux/userReducer'
+import '../styles/login.css'
 
  class Login extends Component{
      constructor(){
@@ -19,7 +20,7 @@ import {updateUser} from '../redux/userReducer'
          this.setState({[e.target.name]:e.target.value})
      }
 
-     handleLoginClick=()=>{
+     handleLoginClick=(e)=>{
         const {username, password} = this.state;
         if(username === "" && password === "") {
             this.setState({triedToClick: true});
@@ -28,7 +29,7 @@ import {updateUser} from '../redux/userReducer'
                 username, password
             }).then(response => {
                 this.props.updateUser(response.data);
-                this.setState({shouldRedirect: true,})
+                this.setState({redirect: true,})
             }).catch(err => {
                 this.setState({serverErrorMessage: err.response.data.error});
             })
@@ -40,13 +41,21 @@ import {updateUser} from '../redux/userReducer'
         }
         return(
             <div>
-                <Link to = "/">
-                    <button>Home</button>
-                </Link>
-                <h1>login</h1>
-                <input placeholder="Username" name = "username" onChange ={this.handleChange}></input>
-                <input placeholder="Password" name ="password" onChange ={this.handleChange}></input>
-                <button onClick ={this.handleLoginClick}>Login</button>
+                <nav>
+                    <Link to = "/">
+                        <button>Home</button>
+                    </Link>
+                </nav>
+               
+                
+                <div className = "regDiv">
+                    <div className ='inputs'>
+                    <h1>Login</h1>
+                        <input placeholder="Username" name = "username" onChange ={this.handleChange} className ='user-name'></input>
+                        <input placeholder="Password" name ="password" onChange ={this.handleChange} className ='pass-word'></input>
+                        <button onClick ={this.handleLoginClick} className ="loginBut">Login</button>
+                    </div>
+                </div>
                 
             </div>
         )

@@ -1,0 +1,39 @@
+.firstNav{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    position: sticky;
+    height: 80px;
+    
+}
+.login{
+    background-color:rgb(86, 128, 168) ;
+    border-color: rgb(86, 128, 168);
+    color: white;
+    font-size: 25px;
+    border-radius: 5px;
+}
+.register{
+    background-color:rgb(204, 49, 70);
+    border-color: rgb(204, 49, 70);
+    color: white;
+    font-size:25px;
+    border-radius: 5px;
+    
+}
+.loginRegister{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:15vw;
+    margin-left: 200px;
+    
+}
+@media(max-width:1399px){
+    .loginRegister{
+        display: none;
+    }
+    .firstNav{
+        background:white;
+    }
+}

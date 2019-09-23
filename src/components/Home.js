@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import Nav from "./Nav"
+import '../styles/home.css'
 
 export default class Home extends Component{
 

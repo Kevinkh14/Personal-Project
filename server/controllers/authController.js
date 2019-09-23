@@ -33,8 +33,7 @@ module.exports = {
                 if(areSame) {
                     req.session.user = {
                         username,
-                        email: user[0].email,
-                        isAdmin: user[0].is_admin
+                        email: user[0].email
                     }
                     res.status(200).json(req.session.user);
                 } else {
