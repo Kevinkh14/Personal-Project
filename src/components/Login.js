@@ -29,7 +29,7 @@ import '../styles/login.css'
                 username, password
             }).then(response => {
                 this.props.updateUser(response.data);
-                this.setState({redirect: true,})
+                this.setState({redirect: true})
             }).catch(err => {
                 this.setState({serverErrorMessage: err.response.data.error});
             })
@@ -43,16 +43,15 @@ import '../styles/login.css'
             <div>
                 <nav>
                     <Link to = "/">
-                        <button>Home</button>
+                        <button className ='worp'>Worp</button>
                     </Link>
                 </nav>
-               
-                
+                {this.state.serverErrorMessage !== "" ? <li className ='errorMessage'>{this.state.serverErrorMessage}</li> : null}
                 <div className = "regDiv">
                     <div className ='inputs'>
                     <h1>Login</h1>
                         <input placeholder="Username" name = "username" onChange ={this.handleChange} className ='user-name'></input>
-                        <input placeholder="Password" name ="password" onChange ={this.handleChange} className ='pass-word'></input>
+                        <input placeholder="Password" name ="password" onChange ={this.handleChange} className ='pass-word' type ='password'></input>
                         <button onClick ={this.handleLoginClick} className ="loginBut">Login</button>
                     </div>
                 </div>

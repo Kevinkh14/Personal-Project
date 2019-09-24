@@ -25,9 +25,10 @@ module.exports = {
     },
     loginUser: function(req, res) {
         const {username, password} = req.body;
+        console.log(password)
         const db = req.app.get("db");
         db.getPasswordViaUsername(username).then(user => {
-            let hash = user[0].password;
+            let hash = user[0].hash;
             console.log(user[0]);
             bcrypt.compare(password, hash).then(areSame => {
                 if(areSame) {
@@ -36,6 +37,7 @@ module.exports = {
                         email: user[0].email
                     }
                     res.status(200).json(req.session.user);
+                    
                 } else {
                     res.status(401).json({
                         error: "Username or Password incorrect"
@@ -43,5 +45,9 @@ module.exports = {
                 }
             })
         })
+    },
+    logOut: function(req,res){
+        req.session.destroy();
+        return res.sendStatus(200)
     }
 }

@@ -14,18 +14,18 @@
    background: white;
 }
 .username{
-    height:50px;
-    width:300px;
+    height:5vh;
+    width:20vw;
     border-radius: 5px;
 }
 .password{
-    height:50px;
-    width:300px;
+    height:5vh;
+    width:20vw;
     border-radius: 5px;
 }
 .email{
-    height:50px;
-    width:300px;
+    height:5vh;
+    width:20vw;;
     border-radius: 5px;
 }
 .signUP{
@@ -36,6 +36,8 @@
     color: white;
     font-size:25px;
     border-radius: 5px;
+    font-family: 'Saira', sans-serif;
+
 }
 .errorMessage{
     color:red;

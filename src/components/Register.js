@@ -45,7 +45,7 @@ import '../styles/register.css'
                 {this.state.triedToClick === true ? <h1>Please Fill in all the Fields</h1> : null}
                 <nav>
                     <Link to = "/">
-                        <button>Home</button>
+                        <button className ='worp'>Worp</button>
                     </Link>
                 </nav>
                 <div>
@@ -55,7 +55,7 @@ import '../styles/register.css'
                     <div className='inputs'>
                         <h1>Register</h1>
                         <input placeholder ="Username" name ="username" onChange={this.handleChange}className="username"></input>
-                        <input placeholder="Password" name ="password" onChange={this.handleChange}className="password"></input>
+                        <input placeholder="Password" name ="password" onChange={this.handleChange}className="password" type ='password'></input>
                         <input placeholder ="Email" name ="email" onChange={this.handleChange}className = "email"></input>
                         <button onClick ={this.handleRegister} className="signUP">Register</button>
                     </div>

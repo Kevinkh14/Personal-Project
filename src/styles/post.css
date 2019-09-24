@@ -1,0 +1,15 @@
+
+.post-container{
+    width:600px;
+    height: 200px;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 5vh;
+    color:black;
+    text-align: center;
+
+}
+.content{
+    font-size: 100px;
+    color: black;
+}

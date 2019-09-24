@@ -1,0 +1,35 @@
+
+.profile{
+    display: flex;
+    justify-content: space-between;
+    margin-top:10vh;
+}
+.profile-container{
+    background-color: white;
+    margin-left:2vw;
+    width:35vw;
+    height: 60vh;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: grey;
+}
+.pastPost-container{
+    margin-right: 4vw;
+    width:30vw;
+    height: 30vh;
+}
+.pastPost{
+    text-decoration: underline;
+}
+.joined{
+    position: sticky;
+    font-size:2vw;   
+    text-decoration: underline;
+    list-style: none;
+    
+}
+.joined-profile{
+    display: flex;
+    flex-direction: column;
+}
