@@ -15,9 +15,7 @@ export default class UserHome extends Component{
 
     }
     componentDidMount(){
-        axios.get('/api/AllPost').then(response=>{
-            this.setState({allPost:response.data})
-        })
+        this.fetchPost();
     }
     handleChangeOfPost=(e)=>{
         this.setState({content:e.target.value})
@@ -28,11 +26,15 @@ export default class UserHome extends Component{
             .post("/api/post",{
                 content:this.state.content
             })
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err))
+            this.fetchPost()
     }
     update= (allPost)=>{
         this.setState({allPost:allPost})
+    }
+    fetchPost=()=>{
+        axios.get('/api/AllPost').then(response=>{
+            this.setState({allPost:response.data})
+        })           
     }
 
     render(){
@@ -41,27 +43,25 @@ export default class UserHome extends Component{
                 <UserNav/>
                 <div className='userHome'>
                     <div className ='post-div'>
-                        <h1>User Home</h1>
-                        {this.state.allPost.map((indivisualPost,i) =>{
+                        {this.state.allPost.map((indivisualPost,index) =>{
                             return(
                                 <>
                                     <Post
-                                    content ={indivisualPost.content}
+                                    content ={indivisualPost.content_of_post}
                                     update ={this.update}
-                                    key ={i}
+                                    username ={indivisualPost.username}
+                                    key={index}
                                     />
                                 </>
                             )
                         })}
                     </div>
+                    <footer className ='foot'>.</footer>
                     <div className = 'create-post'>
                         <input placeholder ='Create Post' onChange={this.handleChangeOfPost} style={{"cursor":"text"}}></input>
                         <button className ='create-post-but' onClick ={this.handlePost}>Create Post</button>
                     </div>
                 </div>
-                <footer>
-                    
-                </footer>
             </div>
         )
     }

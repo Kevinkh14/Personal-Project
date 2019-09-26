@@ -13,7 +13,7 @@ function addPost(req,res){
 }
 function getAllPost(req,res){
     const db = req.app.get('db')
-    db.getAllPost(req.session.user.username).then(posts =>{
+    db.getAllPost().then(posts =>{
         res.status(200).json(posts)
     })
 }
@@ -23,8 +23,28 @@ function getNonUserPost(req,res){
         res.status(200).json(post)
     })
 }
+function getPastPost(req,res){
+    const db = req.app.get('db')
+    db.getPastPost(req.session.user.username).then(posts =>{
+        res.status(200).json(posts)
+    })
+}
+function deletePost(req,res){
+   const {postId} =req.params
+   const db = req.app.get('db')
+   db.deletePost(postId)
+   .then(()=>{
+       db.getAllPost(req.session.user.username).then(posts=>{
+           res.send(200).json(posts)
+
+       })
+   }) 
+  
+} 
 module.exports={
     addPost,
     getAllPost,
-    getNonUserPost
+    getNonUserPost,
+    deletePost,
+    getPastPost
 }

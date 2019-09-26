@@ -46,11 +46,11 @@ import '../styles/login.css'
                         <button className ='worp'>Worp</button>
                     </Link>
                 </nav>
-                {this.state.serverErrorMessage !== "" ? <li className ='errorMessage'>{this.state.serverErrorMessage}</li> : null}
                 <div className = "regDiv">
                     <div className ='inputs'>
-                    <h1>Login</h1>
-                        <input placeholder="Username" name = "username" onChange ={this.handleChange} className ='user-name'></input>
+                        {this.state.serverErrorMessage !== "" ? <li className ='errorMessage'>{this.state.serverErrorMessage}</li> : null}
+                        <h1 style ={{"fontFamily": "'Saira', sans-serif"}}>Login</h1>
+                        <input placeholder="Username" name = "username" onChange ={this.handleChange} className ='user-name' type='text'></input>
                         <input placeholder="Password" name ="password" onChange ={this.handleChange} className ='pass-word' type ='password'></input>
                         <button onClick ={this.handleLoginClick} className ="loginBut">Login</button>
                     </div>

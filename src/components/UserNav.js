@@ -15,7 +15,7 @@ class UserNav extends Component{
         }
     }
     toggle=()=>{
-        if(this.state.menuOpenStatus ==="side-menu-close"|| this.state.menuOpenStatus ==="side-Menu"){
+        if(this.state.menuOpenStatus ==="side-menu-close"|| this.state.menuOpenStatus ==="side-menu"){
             this.setState({menuOpenStatus: "side-menu-open"});
         }
         else if(this.state.menuOpenStatus ==="side-menu-open"){
@@ -38,6 +38,15 @@ class UserNav extends Component{
         }
         return(
             <div className ='nav-div'>
+                <div className ={`${this.state.menuOpenStatus} hidden-by-default`}>
+                    <Link to = '/UserHome'>
+                        <button className ='home-but'>Home</button>
+                    </Link>
+                    <Link to = '/Profile'>
+                         <button className ='prof-but'>profile</button>
+                    </Link>
+                    <button onClick ={this.logout}className='logout-but'>Logout</button>
+                </div>
             <nav className ='usernav'>
                 <div>
                     <Link to ="/UserHome">
@@ -48,16 +57,10 @@ class UserNav extends Component{
                     <input placeholder ='Search' className ='search-bar'></input>
                 </div>
                 <div>
-                   <button  className ='hamBut'> <img onClick ={this.toggle}className ='imgtwo' src='https://cdn1.iconfinder.com/data/icons/different-menu-vol-2-1/512/menu_line_Bullet_Hamburger-512.png'/></button>
-
+                   <button  className ='hamBut'> <img onClick ={this.toggle}className ='imgtwo' src='https://cdn1.iconfinder.com/data/icons/different-menu-vol-2-1/512/menu_line_Bullet_Hamburger-512.png' alt=''/></button>
                 </div>
-                    <div className ={`${this.state.menuOpenStatus}hidden-by-default`}>
-                        <Link to = '/Profile'>
-                            <button>profile</button>
-                        </Link>
-                        <button onClick ={this.logout}>Logout</button>
-                    </div>
-            </nav></div>
+            </nav>
+            </div>
         )
     }
 }

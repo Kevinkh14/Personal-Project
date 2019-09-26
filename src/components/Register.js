@@ -42,18 +42,18 @@ import '../styles/register.css'
         }
         return(
             <div >
-                {this.state.triedToClick === true ? <h1>Please Fill in all the Fields</h1> : null}
                 <nav>
                     <Link to = "/">
                         <button className ='worp'>Worp</button>
                     </Link>
                 </nav>
                 <div>
-                    {this.state.serverErrorMessage !== "" ? <li className ='errorMessage'>{this.state.serverErrorMessage}</li> : null}
                 </div>
                 <div className="regDiv">
                     <div className='inputs'>
-                        <h1>Register</h1>
+                        {this.state.triedToClick === true ? <li className ='errorMessage'>Please Fill in all the Fields.</li> : null}
+                        {this.state.serverErrorMessage !== "" ? <li className ='errorMessage'>{this.state.serverErrorMessage}</li> : null}
+                        <h1 style ={{"fontFamily": "'Saira', sans-serif"}}>Register</h1>
                         <input placeholder ="Username" name ="username" onChange={this.handleChange}className="username"></input>
                         <input placeholder="Password" name ="password" onChange={this.handleChange}className="password" type ='password'></input>
                         <input placeholder ="Email" name ="email" onChange={this.handleChange}className = "email"></input>

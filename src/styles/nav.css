@@ -3,48 +3,112 @@
     justify-content: center;
     align-items: center;
     justify-content: space-around;
-    width: 110vw;
+    width: 100vw;
     position: fixed;
+    top:0;
     height: 80px;
     
 }
 .login{
+    cursor: pointer;
     background-color:transparent ;
     border-color: transparent;
     font-size: 20px;
     border-radius: 5px;
-    font-family: 'Orbitron', sans-serif;
     font-family: 'Saira', sans-serif;
 
 }
+.login:hover{
+    background-color: darkgrey;
+}
+
 .register{
+    cursor: pointer;
     background-color:transparent;
     border-color: transparent;
     font-size:20px;
     border-radius: 5px;
-    font-family: 'Orbitron', sans-serif;
     font-family: 'Saira', sans-serif;
 
+}
+.register:hover{
+    background-color: rgb(165, 11, 11);
 }
 .loginRegister{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width:15vw;
-    margin-left: 20vw;
-    
+    margin-left: 50vw;
 }
 
 .worp{
+    cursor: pointer;
     background-color: transparent;
     border-color: transparent;
-    font-size:35px;
+    font-size:40px;
     font-family: 'Orbitron', sans-serif;
+    outline: none;
 }
 .imgone{
-    width:100px;
+    width:60px;
     display: none;
     margin-left:10vw;
+}
+.hamBut{
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+}
+div.down-menu,.down-menu-open,.down-menu-close{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+    position: fixed;
+    right:0vw;
+    height:50vh;
+    width: 30vw;
+    background-color: rgb(208, 219, 219);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(215, 223, 224);
+    transform: translateX(300px);
+    transform: translateY(-600px);   
+}
+
+.down-menu-open{
+    display: flex;
+    animation: open .5s forwards ease
+
+}
+.down-menu-close{
+    display: flex;
+    animation: close .5s forwards ease
+}
+@keyframes open{
+    to{
+        transform: translateX(0px);
+        transform: translateY(0px);
+       
+    }
+}
+@keyframes close{
+    from {
+        transform: translateX(0px);
+        transform: translateY(0px);
+        
+    }
+    to{
+        transform: translateX(300px);
+        transform: translateY(-600px);
+        
+    }
+}
+@keyframes open-butt{
+    to{
+        transform: -100px
+    }
 }
 
 @media(max-width:1100px){
@@ -52,9 +116,15 @@
         display: none;
     }
     .firstNav{
-        background:white;
+        background:rgb(208, 219, 219);
+        
     }
     .imgone{
         display: block;
+    }
+}
+@media(min-width:1100px){
+    div.down-menu,.down-menu-open,.down-menu-close{
+        display: none;
     }
 }

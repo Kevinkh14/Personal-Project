@@ -3,7 +3,7 @@ const express = require("express");
 const massive = require('massive')
 const session = require ('express-session')
 const {registerUser,loginUser,logOut}=require('./controllers/authController')
-const {addPost,getAllPost,getNonUserPost} = require('./controllers/postController')
+const {addPost,getAllPost,getNonUserPost,deletePost,getPastPost} = require('./controllers/postController')
 
 const app = express()
 
@@ -35,7 +35,9 @@ app.get("/auth/user", (req, res) => {
 })
 app.post("/api/post",addPost)
 app.get("/api/AllPost",getAllPost)
+app.get("/api/user/post",getPastPost)
 app.get("/api/getNonUserPost",getNonUserPost)
+app.delete("/api/post:id",deletePost)
 
 
 app.listen(SERVER_PORT,()=> console.log(`Listening on port ${SERVER_PORT}`))

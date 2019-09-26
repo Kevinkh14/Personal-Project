@@ -21,20 +21,23 @@ export default class Home extends Component{
         return(
             <div>
                 <Nav/>
-                <h1>Home</h1>
                 <div className ='non-post'>
-                {this.state.allPost.map((indivisualPost,i) =>{
+                {this.state.allPost.map((individualPost,i) =>{
                             return(
                                 <>
                                     <Post
-                                    content ={indivisualPost.content}
+                                    content ={individualPost.content_of_post}
                                     update ={this.update}
+                                    username={individualPost.username}
                                     key ={i}
                                     />
                                 </>
                             )
                         })}
                 </div>
+                <footer>
+                    
+                </footer>
             </div>
         )
     }

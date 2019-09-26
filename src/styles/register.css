@@ -37,9 +37,28 @@
     font-size:25px;
     border-radius: 5px;
     font-family: 'Saira', sans-serif;
-
 }
+.signUP:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
 .errorMessage{
     color:red;
     list-style: none;
+}
+@media(max-width:850px){
+    .inputs{
+        height: 60vh;
+        width: 80vw;
+    }
+    .username{
+        width: 40vw;
+    }
+    .password{
+        width: 40vw;
+    }
+    .email{
+        width: 40vw;
+    }
+
 }

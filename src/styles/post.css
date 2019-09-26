@@ -1,15 +1,32 @@
 
 .post-container{
-    width:600px;
-    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: space-evenly;
+    width:40vw;
+    height: 20vh;
     background-color: white;
     border-radius: 5px;
-    margin-top: 5vh;
-    color:black;
-    text-align: center;
-
+    margin-top: 2vh;
 }
 .content{
-    font-size: 100px;
+    font-size: 20px;
     color: black;
+}
+.name{
+    font-size: 20px;
+    color: rgb(167, 174, 180);
+    text-decoration: underline;
+    font-weight: lighter;
+    position: static;
+
+}
+.pastPostDiv{
+    position: static;
+}
+@media(max-width:900px){
+    .post-container{
+        width: 70vw;
+    }
 }

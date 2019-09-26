@@ -3,6 +3,10 @@ body {
 }
 .non-post{
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
+    margin-top:5vh;
+}
+footer{
+    height: 30vh;
 }
