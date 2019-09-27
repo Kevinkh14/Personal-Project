@@ -10,7 +10,8 @@ export default class UserHome extends Component{
         super(props)
         this.state={
             content:"",
-            allPost:[]
+            allPost:[],
+            imgUrl:""
         }
 
     }
@@ -24,7 +25,8 @@ export default class UserHome extends Component{
         e.preventDefault()
         axios
             .post("/api/post",{
-                content:this.state.content
+                content:this.state.content,
+                img_url:this.state.img_url
             })
             this.fetchPost()
     }
@@ -36,20 +38,38 @@ export default class UserHome extends Component{
             this.setState({allPost:response.data})
         })           
     }
-
+    checkUploadResult = (error, resultEvent) => {
+        if (resultEvent.event === "success") {
+            console.log("Picture uploaded successfully")
+            console.log(resultEvent.info.img_url);
+            this.setState({img_url: resultEvent.info.img_url});
+        }
+    };
+    
     render(){
+        const widget = window.cloudinary.createUploadWidget(
+            {
+            cloudName: "kevin14",
+            uploadPreset: " xoy9arl8",
+            sources: ["local", "url", "dropbox", "facebook", "instagram"]
+            },
+            (error, result) => {
+            this.checkUploadResult(error, result);
+            })
+          
         return(
             <div>
                 <UserNav/>
                 <div className='userHome'>
                     <div className ='post-div'>
-                        {this.state.allPost.map((indivisualPost,index) =>{
+                        {this.state.allPost.map((individualPost,index) =>{
                             return(
                                 <>
                                     <Post
-                                    content ={indivisualPost.content_of_post}
+                                    content ={individualPost.content_of_post}
                                     update ={this.update}
-                                    username ={indivisualPost.username}
+                                    username ={individualPost.username}
+                                    url ={individualPost.url}
                                     key={index}
                                     />
                                 </>
@@ -60,6 +80,7 @@ export default class UserHome extends Component{
                     <div className = 'create-post'>
                         <input placeholder ='Create Post' onChange={this.handleChangeOfPost} style={{"cursor":"text"}}></input>
                         <button className ='create-post-but' onClick ={this.handlePost}>Create Post</button>
+                        <button onClick ={()=>widget.open()}>add pic</button>
                     </div>
                 </div>
             </div>

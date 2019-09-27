@@ -25,7 +25,6 @@ module.exports = {
     },
     loginUser: function(req, res) {
         const {username, password} = req.body;
-        console.log(password)
         const db = req.app.get("db");
         db.getPasswordViaUsername(username).then(user => {
             let hash = user[0].hash;

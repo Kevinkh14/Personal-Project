@@ -16,11 +16,12 @@
 }
 .pastPost-container{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width:45vw;
-    height: 100vh;
+    height: 75vh;
     overflow: scroll;   
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    width:45vw;
 }
 .pastPost{
     text-decoration: underline;
@@ -33,7 +34,7 @@
     text-decoration: underline;
     list-style: none;
     font-family: 'Saira', sans-serif;
-    
+    z-index: -1;
 }
 .joined-profile{
     display: flex;

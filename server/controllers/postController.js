@@ -30,21 +30,40 @@ function getPastPost(req,res){
     })
 }
 function deletePost(req,res){
-   const {postId} =req.params
+   const {id} = req.params
    const db = req.app.get('db')
-   db.deletePost(postId)
+   db.deletePost(id)
    .then(()=>{
-       db.getAllPost(req.session.user.username).then(posts=>{
-           res.send(200).json(posts)
+       db.getPastPost(req.session.user.username).then(posts=>{
+           res.status(200).json(posts)
 
        })
    }) 
-  
 } 
+function editPost(req,res){
+  const {id} =req.params;
+  console.log(id)
+  const{content} = req.body;
+  const db = req.app.get("db")  
+  db.updatePost(content,id).then(()=>{
+      db.getPastPost(req.session.user.username).then(post=>{
+          res.status(200).json(post)
+      })
+  })
+}
+function getUsername(req,res){
+    const db = req.app.get('db')
+    db.getUsername().then(username=>{
+        console.log(user[0])
+        res.status(200).json(username)
+    })
+}
 module.exports={
     addPost,
     getAllPost,
     getNonUserPost,
     deletePost,
-    getPastPost
+    getPastPost,
+    getUsername,
+    editPost
 }

@@ -28,6 +28,7 @@
     background-color: transparent;
     border-color: transparent;
     outline: none;
+    
 }
 .prof-but{
     cursor: pointer;
@@ -67,6 +68,7 @@ div.side-menu,.side-menu-open,.side-menu-close{
     border-style: solid;
     border-width: 1px;
     border-color: rgb(200, 210, 211);
+    z-index: 0;
     transform: translateX(300px);
     transform: translateY(-600px);
 }
