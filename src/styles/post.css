@@ -8,6 +8,8 @@
     border-color: rgb(207, 200, 200);
     border-radius: 5px;
     margin-top: 2vh;
+    box-shadow: 2px 2px rgb(146, 138, 138);
+
 }
 .content{
     font-size: 20px;
@@ -23,11 +25,12 @@
   width: 5vw;
 }
 .name{
-    font-size: 13px;
+    font-size: 1vw;
     color: rgb(167, 174, 180);
     text-decoration: underline;
     font-weight: lighter;
-    position: static;
+    position: absolute;
+    margin-left:1vw
     
 }
 .pastPostDiv{
@@ -43,8 +46,9 @@
 .text-pic{
     display: flex;
     flex-direction: column;
-    margin: 2vw;
-    margin-right:10vw;
+    justify-content: flex-start;
+    margin: 3vw;
+    margin-right:5vw;
 }
 .img-post{
     width:25vw;
@@ -52,6 +56,27 @@
     border-width: 1px;
     border-color: black;
     border-radius: 5px;
+}
+.delete-but{
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'Saira', sans-serif;
+}
+.edit-but{
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'Saira', sans-serif;
+}
+.save-but{
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'Saira', sans-serif;
+}
+.input-edit{
+    height:10vh;
+    width:100vh;
+    font-size: 2vw;
+
 }
 
 @media(max-width:900px){

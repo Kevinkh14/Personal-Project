@@ -54,6 +54,18 @@
     font-size:1.2vw;
     outline: none;
 }
+.home-but:hover {
+    box-shadow: 0 0px #666;
+    transform: translateY(4px);
+  }
+  .logout-but:hover{
+    box-shadow: 0 0px #666;
+    transform: translateY(4px); 
+  }
+  .prof-but:hover{
+    box-shadow: 0 0px #666;
+    transform: translateY(4px);
+  }
 
 div.side-menu,.side-menu-open,.side-menu-close{
     display: flex;
@@ -64,6 +76,7 @@ div.side-menu,.side-menu-open,.side-menu-close{
     right:0vw;
     height:50vh;
     width: 15vw;
+    box-shadow: 5px 5px rgb(146, 138, 138);
     background-color: white;
     border-style: solid;
     border-width: 1px;

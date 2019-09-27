@@ -55,17 +55,19 @@ class Post extends Component{
                     </>
                     :
                     <>
-                        <input defaultValue ={content} onChange={(e)=>this.setState({inputField:e.target.value})}></input>
+                        <input className={'input-edit'}defaultValue ={content} onChange={(e)=>this.setState({inputField:e.target.value})}></input>
                     </>
                 }
                 {this.props.onUserProfile ===true ?
                 <>
-                <button onClick = {this.handleDelete}>Delete</button>
-                {this.state.editStatus ===false?
-                    <button onClick = {()=> this.setState({editStatus:true})}>Edit</button>
-                    :
-                    <button onClick ={this.handleEdit}>save</button>
-                }
+                <div className = 'delete-edit-div'>
+                    <button className = 'delete-but' onClick = {this.handleDelete}>Delete</button>
+                    {this.state.editStatus ===false?
+                        <button  className ='edit-but'onClick = {()=> this.setState({editStatus:true})}>Edit</button>
+                        :
+                        <button className ='save-but' onClick ={this.handleEdit}>save</button>
+                    }
+                </div>
                 </>
                 :
                 <></>

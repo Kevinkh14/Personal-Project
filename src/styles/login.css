@@ -1,14 +1,18 @@
 .user-name{
     height:5vh;
     width:20vw;
-    border-radius: 5px;
+    border:none;
+    border-bottom: 2px solid black;
     font-size: 20px;
+    outline: none;
 }
 .pass-word{
     height:5vh;
     width:20vw;
-    border-radius: 5px;
+    border:none;
+    border-bottom: 2px solid black;
     font-size: 20px;
+    outline: none;
 }
 
 .loginBut{
