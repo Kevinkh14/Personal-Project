@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import UserNav from './UserNav'
+import {Redirect} from 'react-router-dom'
 import '../styles/userHome.css'
 import axios from 'axios'
 import Post from './Post'
@@ -11,7 +12,7 @@ export default class UserHome extends Component{
         this.state={
             content:"",
             allPost:[],
-            imgUrl:""
+            url:""
         }
 
     }
@@ -23,10 +24,11 @@ export default class UserHome extends Component{
     }
     handlePost=(e)=>{
         e.preventDefault()
+        console.log(this.state.url)
         axios
             .post("/api/post",{
                 content:this.state.content,
-                img_url:this.state.img_url
+                url:this.state.url
             })
             this.fetchPost()
     }
@@ -38,19 +40,19 @@ export default class UserHome extends Component{
             this.setState({allPost:response.data})
         })           
     }
-    checkUploadResult = (error, resultEvent) => {
+    checkUploadResult = (error,resultEvent) => {
         if (resultEvent.event === "success") {
             console.log("Picture uploaded successfully")
-            console.log(resultEvent.info.img_url);
-            this.setState({img_url: resultEvent.info.img_url});
+            console.log(resultEvent.info.url);
+            this.setState({url: resultEvent.info.url});
         }
     };
-    
+    //cloudinary
     render(){
         const widget = window.cloudinary.createUploadWidget(
             {
             cloudName: "kevin14",
-            uploadPreset: " xoy9arl8",
+            uploadPreset: "xoy9arl8",
             sources: ["local", "url", "dropbox", "facebook", "instagram"]
             },
             (error, result) => {
@@ -67,10 +69,10 @@ export default class UserHome extends Component{
                                 <>
                                     <Post
                                     content ={individualPost.content_of_post}
-                                    update ={this.update}
                                     username ={individualPost.username}
-                                    url ={individualPost.url}
+                                    url ={individualPost.img_url}
                                     key={index}
+                                    update ={this.update}
                                     />
                                 </>
                             )
@@ -79,7 +81,7 @@ export default class UserHome extends Component{
                     <footer className ='foot'>.</footer>
                     <div className = 'create-post'>
                         <input placeholder ='Create Post' onChange={this.handleChangeOfPost} style={{"cursor":"text"}}></input>
-                        <button className ='create-post-but' onClick ={this.handlePost}>Create Post</button>
+                            <button className ='create-post-but' onClick ={this.handlePost}>Create Post</button>
                         <button onClick ={()=>widget.open()}>add pic</button>
                     </div>
                 </div>

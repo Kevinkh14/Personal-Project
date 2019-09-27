@@ -1,11 +1,7 @@
 
 .post-container{
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    justify-content: space-evenly;
     width:40vw;
-    height: 20vh;
     background-color: white;
     border-style: solid;
     border-width:1px;
@@ -15,19 +11,49 @@
 }
 .content{
     font-size: 20px;
-    color: black;
+    color: rgb(97, 94, 94);
+    font-family: 'Saira', sans-serif;
+}
+.text{
+    display: flex;
+    justify-content: flex-start;
+    width:20vw;
+}
+.name-div{
+  width: 5vw;
 }
 .name{
-    font-size: 20px;
+    font-size: 13px;
     color: rgb(167, 174, 180);
     text-decoration: underline;
     font-weight: lighter;
     position: static;
-
+    
 }
 .pastPostDiv{
     position: static;
 }
+.content-in{
+    display: fixed;
+    width: 35vw;
+    display: flex;
+    justify-content: space-between;
+
+}
+.text-pic{
+    display: flex;
+    flex-direction: column;
+    margin: 2vw;
+    margin-right:10vw;
+}
+.img-post{
+    width:25vw;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 5px;
+}
+
 @media(max-width:900px){
     .post-container{
         width: 70vw;

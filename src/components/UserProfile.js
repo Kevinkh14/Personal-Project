@@ -48,14 +48,16 @@ export default class UserProfile extends Component{
                         <h2 className = 'pastPost'>Past Post</h2>
                         <div className = 'pastPost-container'>
                             {sortedPosts.map((individualPost,i) =>{
+                                console.log(individualPost)
                                 return(
                                     <>
                                         <Post
                                         content ={individualPost.content_of_post}
-                                        update ={this.update}
                                         id ={individualPost.post_id}
+                                        url={individualPost.img_url}
                                         onUserProfile ={true}
                                         key ={i}
+                                        update ={this.update}
                                         />
                                     </>
                                 )

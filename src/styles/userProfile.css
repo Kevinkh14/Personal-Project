@@ -17,11 +17,11 @@
 .pastPost-container{
     display: flex;
     height: 75vh;
-    overflow: scroll;   
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    overflow: scroll;   
     width:45vw;
+   
 }
 .pastPost{
     text-decoration: underline;

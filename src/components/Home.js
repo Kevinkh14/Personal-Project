@@ -29,6 +29,7 @@ export default class Home extends Component{
                                     content ={individualPost.content_of_post}
                                     update ={this.update}
                                     username={individualPost.username}
+                                    url ={individualPost.img_url}
                                     key ={i}
                                     />
                                 </>

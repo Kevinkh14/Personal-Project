@@ -8,9 +8,15 @@ class Post extends Component{
         this.state={
             editStatus:false,
             inputField:"",
-            img_url:""
         }
     }
+
+    //cloudinary
+    // componentDidMount(){
+    //     axios.get("/test").then(response=>{
+    //         console.log(response)
+    //     })
+    // }
     handleEdit=()=>{
         this.setState({editStatus:false})
         axios.put(`/api/post/${this.props.id}`,
@@ -33,8 +39,19 @@ class Post extends Component{
                     {
                     this.state.editStatus ===false ?
                     <>
-                    <h2 className ='name'>{this.props.username}</h2>
-                    <h1 className ='content'>{content}</h1>
+                    <div className = 'content-in'>
+                        <div className ='name-div'>
+                            <h2 className ='name'>{this.props.username}</h2>
+                        </div>
+                        <div className = 'text-pic'>
+                            <div className ='text'>
+                                <h1 className ='content'>{content}</h1>
+                            </div>
+                            <div className ='img-div'>
+                                <img className ="img-post" src ={this.props.url}></img>
+                            </div>
+                        </div>
+                    </div>
                     </>
                     :
                     <>
