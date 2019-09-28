@@ -1,3 +1,2 @@
-SELECT username
+SELECT user.username
 from users 
-WHERE id = $1

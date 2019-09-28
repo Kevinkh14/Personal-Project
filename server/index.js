@@ -4,6 +4,7 @@ const massive = require('massive')
 const session = require ('express-session')
 const {registerUser,loginUser,logOut}=require('./controllers/authController')
 const {addPost,getAllPost,getNonUserPost,deletePost,getPastPost,getUsername,editPost} = require('./controllers/postController')
+const {addForum} = require ('./controllers/forumController')
 
 const app = express()
 
@@ -40,6 +41,8 @@ app.get("/api/getNonUserPost",getNonUserPost)
 app.get("/api/username",getUsername)
 app.put("/api/post/:id",editPost)
 app.delete("/api/post/:id",deletePost)
+
+app.post("/api/forum",addForum)
 
 
 app.listen(SERVER_PORT,()=> console.log(`Listening on port ${SERVER_PORT}`))

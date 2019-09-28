@@ -4,10 +4,14 @@ function addPost(req,res){
     db.getIdUsername(req.session.user.username)
         .then(id=>{
             let userID =id[0].id
-            db.addPost(userID, content,url)
-                .then(()=>{
-                    res.sendStatus(200)
+            db.getIdForum()
+            .then(forum=>{
+                let forumId =forum[0].forum_id
+                db.addPost(userID, forumId, content,url)
+                    .then(()=>{
+                        res.sendStatus(200)
                 })
+            })
         })
 }
 function getAllPost(req,res){
