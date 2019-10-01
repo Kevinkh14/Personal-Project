@@ -28,7 +28,6 @@
     background-color: transparent;
     border-color: transparent;
     outline: none;
-    
 }
 .prof-but{
     cursor: pointer;
@@ -88,8 +87,7 @@ div.side-menu,.side-menu-open,.side-menu-close{
 
 .side-menu-open{
     display: flex;
-    animation: open .5s forwards ease
-
+    animation: open .5s forwards ease;
 }
 .side-menu-close{
     display: flex;

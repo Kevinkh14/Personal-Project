@@ -36,7 +36,7 @@ export default class Forums extends Component{
         this.setState({allPost:allPost})
     }
     fetchPost=()=>{
-        axios.get('/api/AllPost').then(response=>{
+        axios.get('/api/forumPost').then(response=>{
             this.setState({allPost:response.data})
         })           
     }
@@ -63,6 +63,7 @@ export default class Forums extends Component{
             <div>
                 <UserNav/>
                 <div className='userHome'>
+                    {this.props.forum}
                     <div className ='post-div'>
                         {this.state.allPost.map((individualPost,index) =>{
                             return(

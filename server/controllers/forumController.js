@@ -1,15 +1,31 @@
 function addForum (req,res){
-    const {forum,followers,img} =req.body
+    console.log('add Forum body ')
+    console.log(req.body)
+    const {forum,followers,img} = req.body
     const db =req.app.get("db")
-    db.getIdUsername(req.session.user.username)
-    .then(id=>{
-        let userId = id[0].id
         db.addForum(forum,followers,img)
-        .then(()=>{
-            res.sendStatus(200)
-        })
+        // .then(()=>{
+        //     req.session.forum ={
+        //         forum
+        //     }
+            res.status(200).json('good')
+        // })
+}
+function getforumPost(req,res){
+    const db = req.app.get('db')
+    db.getForumPost().then(posts =>{
+        res.status(200).json(posts)
     })
 }
+function getPastThreads (req,res){
+    const db = req.app.get('db')
+    db.getPastThreads(req.session.user.username).then(posts =>{
+        res.status(200).json(posts)
+    })
+}
+
 module.exports={
-    addForum
+    addForum,
+    getforumPost,
+    getPastThreads
 }

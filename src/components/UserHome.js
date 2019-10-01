@@ -24,12 +24,13 @@ export default class UserHome extends Component{
     }
     handlePost=(e)=>{
         e.preventDefault()
-        console.log(this.state.url)
+        console.log(this.state.content)
         axios
             .post("/api/post",{
                 content:this.state.content,
                 url:this.state.url
             })
+            .then(()=>{this.setState({content:""})})
             this.fetchPost()
     }
     update= (allPost)=>{
@@ -80,7 +81,7 @@ export default class UserHome extends Component{
                     </div>
                     <footer className ='foot'>.</footer>
                     <div className = 'create-post'>
-                        <input placeholder ='Create Post' onChange={this.handleChangeOfPost} style={{"cursor":"text"}}></input>
+                        <input placeholder ='Create Post' onChange={this.handleChangeOfPost} style={{"cursor":"text"}}value ={this.state.content}></input>
                             <button className ='create-post-but' onClick ={this.handlePost}>Create Post</button>
                         <button onClick ={()=>widget.open()}>add pic</button>
                     </div>

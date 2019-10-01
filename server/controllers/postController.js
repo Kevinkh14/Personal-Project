@@ -4,14 +4,14 @@ function addPost(req,res){
     db.getIdUsername(req.session.user.username)
         .then(id=>{
             let userID =id[0].id
-            db.getIdForum()
-            .then(forum=>{
-                let forumId =forum[0].forum_id
-                db.addPost(userID, forumId, content,url)
+            // db.getIdForum()
+            // .then(forum=>{
+            //     let forumId =forum[0].forum_id
+                db.addPost(userID, content, url)
                     .then(()=>{
                         res.sendStatus(200)
                 })
-            })
+            // })
         })
 }
 function getAllPost(req,res){
@@ -54,19 +54,34 @@ function editPost(req,res){
       })
   })
 }
-function getUsername(req,res){
+function addProfPic(req,res){
+    const {url}=req.body
+    const db = req.app.get("db")
+    db.getIdUsername(req.session.user.username)
+    .then(id=>{
+        let userID =id[0].id
+        db.addPost(userID, url)
+        .then(()=>{
+            res.sendStatus(200)
+        })
+    })
+    
+}
+function getProfPic(req,res){
     const db = req.app.get('db')
-    db.getUsername().then(username=>{
-        console.log(user[0])
-        res.status(200).json(username)
+    db.getProfPic(req.session.user.username).then(posts =>{
+        res.status(200).json(posts)
     })
 }
+
+
 module.exports={
     addPost,
     getAllPost,
     getNonUserPost,
     deletePost,
     getPastPost,
-    getUsername,
-    editPost
+    editPost,
+    addProfPic,
+    getProfPic
 }

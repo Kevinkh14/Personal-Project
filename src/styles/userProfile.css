@@ -5,6 +5,10 @@
     margin-top:10vh;
 }
 .profile-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: white;
     margin-left:2vw;
     width:45vw;
@@ -22,6 +26,15 @@
     overflow: scroll;   
     width:45vw;
    
+}
+.avatar{
+    border-style: solid;
+    border-color: black;
+    border-radius: 50%;
+    border-width: 1px;
+    height:20vh;
+    width: 12vw;
+
 }
 .pastPostDiv{
     display: flex;
@@ -55,6 +68,10 @@
     }
     .pastPost{
         font-size: 5vw;
+    }
+    .avatar{
+        width: 20vh;
+        height: 20vh;
     }
 }
 @media(max-width:770px){
