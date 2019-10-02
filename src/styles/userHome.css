@@ -18,10 +18,12 @@
     background-color: rgb(25, 109, 124);
     color: white;
     border-color: transparent;
-    border-radius: 5px;
     width: 300px;
     height:40px;
     font-size: 20px;
+}
+.create-post-but:hover{
+    transform: translateY(2px);
 }
 .post-div{
     display: flex;
@@ -32,4 +34,21 @@
 .foot{
     margin-top:30vh;
     
+}
+.create-input{
+    height: 30px;
+    border-radius: 5px;
+    border-width: 1px;
+    font-size: 15px;
+}
+.add-pic-but{
+    background-color: rgb(25, 109, 124);  
+    border-color:transparent;
+    color:white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.add-pic-but:hover{
+    transform: translateY(-2px);
+    color:yellow;
 }

@@ -33,6 +33,7 @@ module.exports = {
             bcrypt.compare(password, hash).then(areSame => {
                 if(areSame) {
                     req.session.user = {
+                        id:user[0].id,
                         username,
                         email: user[0].email,
                         avatar:user[0].avatar

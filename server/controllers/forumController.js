@@ -1,15 +1,13 @@
 function addForum (req,res){
     console.log('add Forum body ')
     console.log(req.body)
-    const {forum,followers,img} = req.body
+    const {forum,userid} = req.body
     const db =req.app.get("db")
-        db.forum.addForum(forum,followers,img)
-        // .then(()=>{
-        //     req.session.forum ={
-        //         forum
-        //     }
+        db.forum.addForum(forum,userid).then(()=>{
+            console.log(userid)
             res.status(200).json('good')
-        // })
+        })
+       
 }
 function getforumPost(req,res){
     const db = req.app.get('db')

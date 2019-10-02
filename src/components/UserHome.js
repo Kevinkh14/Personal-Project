@@ -81,9 +81,9 @@ export default class UserHome extends Component{
                     </div>
                     <footer className ='foot'>.</footer>
                     <div className = 'create-post'>
-                        <input placeholder ='Create Post' onChange={this.handleChangeOfPost} style={{"cursor":"text"}}value ={this.state.content}></input>
+                        <input className ='create-input'placeholder ='Create Post' onChange={this.handleChangeOfPost} style={{"cursor":"text"}}value ={this.state.content}></input>
                             <button className ='create-post-but' onClick ={this.handlePost}>Create Post</button>
-                        <button onClick ={()=>widget.open()}>add pic</button>
+                        <button className='add-pic-but' onClick ={()=>widget.open()}>add pic</button>
                     </div>
                 </div>
             </div>

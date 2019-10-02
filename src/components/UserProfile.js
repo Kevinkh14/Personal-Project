@@ -18,6 +18,7 @@ class UserProfile extends Component{
             forum:"",
             profilePic:[],
             url:"",
+            id:"",
             createPostStatus:false,
             redirect :false
         }
@@ -46,12 +47,13 @@ class UserProfile extends Component{
         this.setState({forum:e.target.value})
     }
     createForum =()=>{
-        const {forum} = this.state
-        axios.post(`/api/forum/`,{
-            forum
+        const {forum,id} = this.state
+        axios.post("/api/forum/",{
+            forum, id
         }
         ).then(response=>{
             this.setState({redirect:true})
+            console.log(this.state.id)
         })
            
     }
@@ -73,7 +75,7 @@ class UserProfile extends Component{
     getUser=()=>{
         axios.get("/auth/user").then(response=>{
             console.log(response.data)
-            this.setState({username:response.data.username})
+            this.setState({username:response.data.username,id:response.data.id})
         })
     }
     getPastThreads =()=>{
@@ -123,7 +125,7 @@ class UserProfile extends Component{
                         <input placeholder='Forum Name' onChange ={this.handleForumName}></input>
                         <button onClick={this.createForum}>create Forum</button>
                         <li className ='joined'>Joined Threads</li>
-                        <div>{console.log(this.state.pastThreads),this.state.pastThreads.map((individualThreads)=>{
+                        <div>{this.state.pastThreads.map((individualThreads)=>{
                             console.log(individualThreads)
                             return(
                                 <Threads

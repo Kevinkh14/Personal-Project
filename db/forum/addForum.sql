@@ -1,4 +1,4 @@
 INSERT INTO forum
-(forum_name, followers,forum_img)
+(forum_name,forum_user_id)
 values
-($1,$2,$3)
+($1,$2)
