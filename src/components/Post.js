@@ -48,7 +48,7 @@ class Post extends Component{
                                 <h1 className ='content'>{content}</h1>
                             </div>
                             <div className ='img-div'>
-                                <img className ="img-post" src ={this.props.url}></img>
+                                <img className ="img-post" src ={this.props.url}alt=""></img>
                             </div>
                         </div>
                     </div>

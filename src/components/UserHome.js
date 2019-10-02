@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
 import UserNav from './UserNav'
-import {Redirect} from 'react-router-dom'
 import '../styles/userHome.css'
 import axios from 'axios'
 import Post from './Post'
@@ -66,6 +65,7 @@ export default class UserHome extends Component{
                 <div className='userHome'>
                     <div className ='post-div'>
                         {this.state.allPost.map((individualPost,index) =>{
+                            console.log(individualPost)
                             return(
                                 <>
                                     <Post

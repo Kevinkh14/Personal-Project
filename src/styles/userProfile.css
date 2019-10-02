@@ -13,10 +13,7 @@
     margin-left:2vw;
     width:45vw;
     height: 45vh;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: grey;
+    box-shadow:5px 5px rgb(122, 114, 114); 
 }
 .pastPost-container{
     display: flex;
@@ -28,13 +25,22 @@
    
 }
 .avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-style: solid;
     border-color: black;
     border-radius: 50%;
-    border-width: 1px;
+    border-width: 0px;
+    width: 15vw;
+    height:15vh;
+}
+.avatarImg{
+    vertical-align: middle;
+    width:10vw;
     height:20vh;
-    width: 12vw;
-
+    border-radius: 50%;
+    
 }
 .pastPostDiv{
     display: flex;
@@ -62,6 +68,26 @@
     flex-direction: column;
     align-items: center;
 }
+.set-but,.pic-but{
+    background-color: transparent;
+    font-family: 'Saira', sans-serif;
+    border-radius: 5px;
+}
+.usernameh1{
+    font-family: 'Saira', sans-serif;  
+}
+.set-but:hover{
+    transform: translateY(2px);
+}
+.pic-but:hover{
+    transform: translateY(2px);
+}
+@media(max-width: 1300px){
+    .avatarImg{
+        width: 15vw;
+        height: 20vh;
+    }
+}
 @media(max-width:800px){
     .joined{
         font-size: 5vw;
@@ -70,8 +96,8 @@
         font-size: 5vw;
     }
     .avatar{
-        width: 20vh;
-        height: 20vh;
+        width: 3vh;
+        height: 3vh;
     }
 }
 @media(max-width:770px){
@@ -87,4 +113,15 @@
         width: 60vw;
         height: 30vh;
     }
+    .avatarImg{
+        height: 10vh;
+        width:10vw;
+    }
 }
+    @media(max-width:380px){
+       .avatarImg{
+           height: 5vh;
+           width: 10vw;
+       }
+    }
+  

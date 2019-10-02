@@ -23,12 +23,12 @@ import '../styles/register.css'
         })
     }
     handleRegister=()=>{
-        const {username,password,email} = this.state;
+        const {username,password,email,avatar} = this.state;
         if(username!==""&&password!==""&&email!==""){
             axios.post("/auth/register",{
-                username,password,email
+                username,password,email,avatar
             }).then(response =>{
-                this.props.updateUser(username,email)
+                this.props.updateUser(username,email,avatar)
                 this.setState({redirect:true})
             }).catch(err =>{this.setState({serverErrorMessage:err.response.data.error})})
         }else{

@@ -1,4 +1,4 @@
 INSERT INTO users
-(username, hash, email)
+(username, hash, email,avatar_img_url)
 VALUES
-($1, $2, $3);
+($1, $2, $3, $4);

@@ -33,7 +33,7 @@ class UserProfile extends Component{
     getProfilePic=()=>{
         axios
         .get("/api/profile").then(response=>{
-            this.setState({profilePic:response.data})
+            this.setState({url:response.data[0].avatar_img_url})
         })
     }
     update=(pastPost)=>{  
@@ -44,7 +44,6 @@ class UserProfile extends Component{
     }
     handleForumName=(e)=>{
         this.setState({forum:e.target.value})
-        console.log({forum:e.target.value})
     }
     createForum =()=>{
         const {forum} = this.state
@@ -57,9 +56,11 @@ class UserProfile extends Component{
            
     }
     handleprofilePic=()=>{
+        const{url}=this.state
         axios.post('/api/profile',{
-            url:this.state.url
+           url
         })
+        console.log(url)
         
     }
     checkUploadResult = (error,resultEvent) => {
@@ -72,11 +73,11 @@ class UserProfile extends Component{
     getUser=()=>{
         axios.get("/auth/user").then(response=>{
             console.log(response.data)
-            this.props.updateUser(response.data)
+            this.setState({username:response.data.username})
         })
     }
     getPastThreads =()=>{
-        axios.get("/api/user/pastThreads").then(response=>{
+        axios.get("/api/pastThreads").then(response=>{
             this.setState({pastThreads:response.data})
         })
 
@@ -112,27 +113,26 @@ class UserProfile extends Component{
                 <div className = 'profile'>
                     <div className='joined-profile'>
                         <div className ='profile-container'>
-                            <div className ='avatar'>{this.state.profilePic.map((img)=>{
-                                return(
-                                    <img src ={img.avatar_img_url}/>
-                                )
-                            })}</div>
-                            <h1>{this.props.username}</h1>
-                            <button onClick ={()=>widget.open()}>add pic</button>
-                            <button onClick ={this.handleprofilePic}>set</button>
+                            <div className ='avatar'>
+                            <img className='avatarImg' src ={this.state.url} alt =""/>
+                            </div>
+                            <h1 className ='usernameh1'>{this.state.username}</h1>
+                            <button className ='pic-but' onClick ={()=>widget.open()}>Add Profile Picture</button>
+                            <button className ='set-but' onClick ={this.handleprofilePic}>Set Profile Picture</button>
                         </div>
                         <input placeholder='Forum Name' onChange ={this.handleForumName}></input>
                         <button onClick={this.createForum}>create Forum</button>
                         <li className ='joined'>Joined Threads</li>
-                        {/* <div>{this.pastThreads.map((individualThreads)=>{
+                        <div>{console.log(this.state.pastThreads),this.state.pastThreads.map((individualThreads)=>{
+                            console.log(individualThreads)
                             return(
                                 <Threads
-                                forumName ={individualThreads.forum_name}
+                                forum ={individualThreads.forum_name}
                                 id ={individualThreads.forum_id}
                                 updateThreads ={this.updateThreads}
                                 />
                             )
-                        })}</div> */}
+                        })}</div>
                     </div>
                     <div className = "pastPostDiv">
                         <h2 className = 'pastPost'>Past Post</h2>

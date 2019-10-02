@@ -59,13 +59,12 @@ function addProfPic(req,res){
     const db = req.app.get("db")
     db.getIdUsername(req.session.user.username)
     .then(id=>{
-        let userID =id[0].id
-        db.addPost(userID, url)
-        .then(()=>{
+        let userId =id[0].id
+        db.addProfilePic(url,userId)
+        .then((res)=>{
             res.sendStatus(200)
-        })
+        }) 
     })
-    
 }
 function getProfPic(req,res){
     const db = req.app.get('db')

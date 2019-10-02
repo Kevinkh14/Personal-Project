@@ -1,4 +1,3 @@
-INSERT INTO users
-(avatar_img_url)
-VALUES
-($1)
+UPDATE users SET
+avatar_img_url = $1
+where id = $2

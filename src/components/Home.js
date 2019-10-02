@@ -15,7 +15,14 @@ export default class Home extends Component{
         axios.get('/api/getNonUserPost').then(response=>{
             this.setState({allPost:response.data})
         })
+        axios.get("/api/profile").then(response=>{
+            this.setState({url:response.data[0].avatar_img_url})
+        
+    })
     }
+
+    
+    
 
     render(){
         return(
@@ -23,6 +30,7 @@ export default class Home extends Component{
                 <Nav/>
                 <div className ='non-post'>
                 {this.state.allPost.map((individualPost,i) =>{
+                    console.log(individualPost)
                             return(
                                 <>
                                     <Post
