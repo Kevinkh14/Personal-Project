@@ -1,6 +1,7 @@
 
 .post-container{
     display: flex;
+    align-items: flex-end;
     width:40vw;
     background-color: white;
     border-style: solid;
@@ -41,7 +42,6 @@
     width: 35vw;
     display: flex;
     justify-content: space-between;
-
 }
 .text-pic{
     display: flex;
@@ -83,6 +83,20 @@
     width:100vh;
     font-size: 2vw;
 
+}
+.img-like{
+    cursor: pointer;
+    width:2vw;
+    height:2vh;
+}
+.img-like:active{
+    filter: 
+}
+.img-like-but{
+    position: absolute;
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
 }
 
 @media(max-width:900px){

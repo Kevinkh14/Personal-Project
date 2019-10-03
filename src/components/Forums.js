@@ -25,7 +25,7 @@ export default class Forums extends Component{
         e.preventDefault()
         console.log(this.state.url)
         axios
-            .post("/api/post",{
+            .post("/api/forumPost",{
                 content:this.state.content,
                 url:this.state.url
             })

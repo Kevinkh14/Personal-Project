@@ -5,17 +5,14 @@
 .inputs{
     height: 85vh;
     width:50vw;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 10px;
-    border-color:rgb(197, 185, 185);
+    border-radius: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
    flex-direction: column;
    justify-content: space-evenly;
    background: white;
-   box-shadow: 1px 1px  rgb(161, 150, 150);
+   box-shadow: 5px 5px  rgb(124, 115, 115);
 }
 .username{
     height:5vh;

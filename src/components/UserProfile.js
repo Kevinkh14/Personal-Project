@@ -89,7 +89,8 @@ class UserProfile extends Component{
                 {
                 cloudName: "kevin14",
                 uploadPreset: "xoy9arl8",
-                sources: ["local", "url", "dropbox", "facebook", "instagram"]
+                sources: ["local", "url", "dropbox", "facebook", "instagram"],
+                
                 },
                 (error, result) => {
                 this.checkUploadResult(error, result);
@@ -126,7 +127,6 @@ class UserProfile extends Component{
                         <button onClick={this.createForum}>create Forum</button>
                         <li className ='joined'>Joined Threads</li>
                         <div>{this.state.pastThreads.map((individualThreads)=>{
-                            console.log(individualThreads)
                             return(
                                 <Threads
                                 forum ={individualThreads.forum_name}

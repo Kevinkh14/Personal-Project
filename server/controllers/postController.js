@@ -1,14 +1,14 @@
 function addPost(req,res){
-    const {content,url}=req.body
+    const {content,url,likes}=req.body
     const db = req.app.get("db")
     db.getIdUsername(req.session.user.username)
         .then(id=>{
             let userID =id[0].id
-                db.addPost(userID, content, url)
+                db.addPost(userID, content, url,likes)
                     .then(()=>{
                         res.sendStatus(200)
                 })
-        })
+             })
 }
 function getAllPost(req,res){
     const db = req.app.get('db')
@@ -68,6 +68,28 @@ function getProfPic(req,res){
         res.status(200).json(posts)
     })
 }
+function addLike(req,res){
+    const {postId} =req.params
+    const db =req.app.get('db')
+    db.getIdUsername(req.session.user.username)
+    .then(id=>{
+        let userId =id[0].id
+    db.addLike(userId,postId).then(()=>{
+        res.sendStatus(200)
+    })
+})
+}
+function deleteLike(req,res){
+    const {postId}=req.params
+    const db =req.app.get('db')
+    db.getIdUsername(req.session.user.username)
+    .then(id=>{
+        let userId =id[0].id
+    db.unlike(userId,post_id).then(()=>{
+        res.sendStatus(200)
+    })
+ })
+}
 
 
 module.exports={
@@ -78,5 +100,7 @@ module.exports={
     getPastPost,
     editPost,
     addProfPic,
-    getProfPic
+    getProfPic,
+    addLike,
+    deleteLike
 }

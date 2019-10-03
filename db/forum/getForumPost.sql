@@ -4,3 +4,4 @@ inner join posts
 ON  users.id = posts.post_user_id
 inner join forum
 on posts.post_forum_id = forum.forum_id
+where forum_id = $1

@@ -23,7 +23,6 @@ export default class UserHome extends Component{
     }
     handlePost=(e)=>{
         e.preventDefault()
-        console.log(this.state.content)
         axios
             .post("/api/post",{
                 content:this.state.content,
@@ -58,13 +57,15 @@ export default class UserHome extends Component{
             (error, result) => {
             this.checkUploadResult(error, result);
             })
-          
+            let sortedArr = this.state.allPost.sort((a, b) => {
+                return a.id - b.id;
+            });
         return(
             <div>
                 <UserNav/>
                 <div className='userHome'>
                     <div className ='post-div'>
-                        {this.state.allPost.map((individualPost,index) =>{
+                        {sortedArr.map((individualPost,index) =>{
                             console.log(individualPost)
                             return(
                                 <>
@@ -72,6 +73,7 @@ export default class UserHome extends Component{
                                     content ={individualPost.content_of_post}
                                     username ={individualPost.username}
                                     url ={individualPost.img_url}
+                                    likes ={individualPost.likes}
                                     key={index}
                                     update ={this.update}
                                     />
