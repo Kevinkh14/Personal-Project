@@ -42,7 +42,6 @@ class Post extends Component{
                     <div className = 'content-in'>
                         <div className ='name-div'>
                             <h2 className ='name'>{this.props.username}</h2>
-                            <h2>{this.props.likes}</h2>
                         </div>
                         <div className = 'text-pic'>
                             <div className ='text'>
@@ -54,6 +53,7 @@ class Post extends Component{
                         </div>
                     </div>
                         <button className='img-like-but'><img className='img-like' src="https://img.icons8.com/cotton/64/000000/facebook-like--v2.png"></img></button>
+                        <h2 className ='like-counter'>{this.props.likes}</h2>
                     </>
                     :
                     <>

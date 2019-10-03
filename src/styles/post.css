@@ -90,13 +90,20 @@
     height:2vh;
 }
 .img-like:active{
-    filter: 
+    transform: translateY(2px);
 }
 .img-like-but{
     position: absolute;
     background-color: transparent;
     border-color: transparent;
     outline: none;
+}
+.like-counter{
+    position: absolute;
+    top:230px;
+    left:450px;
+    font-weight: 400;
+    color: grey;
 }
 
 @media(max-width:900px){

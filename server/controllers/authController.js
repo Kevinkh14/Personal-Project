@@ -1,5 +1,14 @@
 const bcrypt = require('bcryptjs')
+const nodemailer =require('nodemailer')
+require('dotenv').config()
 
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth:{
+        user:process.env.EMAIL,
+        pass:process.env.PASSWORD
+    }
+});
 module.exports = {
     registerUser: function(req, res) {
         const {username, password, email, isAdmin, avatar} = req.body;
@@ -8,12 +17,26 @@ module.exports = {
             if(+count[0].count === 0) {
                 bcrypt.hash(password, 12).then(hash => {
                     db.register(username, hash, email, isAdmin, avatar).then(() => {
+                        let mailOptions ={
+                            from: 'kevinsemail14@gmail.com',
+                            to: email,
+                            subject:'Thanks For Registering On worp',
+                            text:'it works'
+                        }
                         req.session.user = {
                             username,
                             email,
                             isAdmin,
-                            avatar
+                            avatar,
+                            mailOptions
                         }
+                        transporter.sendMail(mailOptions)
+                            .then((response)=>{
+                                console.log('email Sent')
+                            })
+                            .catch((err)=>{
+                                console.log('error',err)
+                            })
                         res.status(200).json(req.session.user);
                     })
                 })
@@ -24,6 +47,7 @@ module.exports = {
             }
         })
     },
+   
     loginUser: function(req, res) {
         const {username, password} = req.body;
         const db = req.app.get("db");

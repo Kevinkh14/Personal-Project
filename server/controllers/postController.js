@@ -85,7 +85,7 @@ function deleteLike(req,res){
     db.getIdUsername(req.session.user.username)
     .then(id=>{
         let userId =id[0].id
-    db.unlike(userId,post_id).then(()=>{
+    db.unlike(userId,postId).then(()=>{
         res.sendStatus(200)
     })
  })
