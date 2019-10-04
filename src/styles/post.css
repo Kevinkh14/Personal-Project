@@ -100,8 +100,6 @@
 }
 .like-counter{
     position: absolute;
-    top:230px;
-    left:450px;
     font-weight: 400;
     color: grey;
 }

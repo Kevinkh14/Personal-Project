@@ -74,6 +74,7 @@ export default class UserHome extends Component{
                                     username ={individualPost.username}
                                     url ={individualPost.img_url}
                                     likes ={individualPost.likes}
+                                    postid ={individualPost.post_id}
                                     key={index}
                                     update ={this.update}
                                     />

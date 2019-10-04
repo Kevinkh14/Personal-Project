@@ -68,29 +68,46 @@ function getProfPic(req,res){
         res.status(200).json(posts)
     })
 }
-function addLike(req,res){
-    const {postId} =req.params
+async function  addLike(req,res){
+    const db = req.app.get('db')
+    const postId = +req.params.postid
+    const userId = req.session.user.id
+    console.log(req.session.user.id)
+    console.log(userId)
+    console.log(postId)
+    const userliked = await db.checkUserLiked(userId,postId)
+        if(userliked[0]){
+            res.status(200).json('User already liked')
+        }
+        else{
+            db.addLike(userId,postId).then(()=>{
+                console.log(userliked)
+                res.status(200).json("ok")
+            })
+        }
+    
+}
+async function deleteLike(req,res){
     const db =req.app.get('db')
-    db.getIdUsername(req.session.user.username)
-    .then(id=>{
-        let userId =id[0].id
-    db.addLike(userId,postId).then(()=>{
+    const postId=+req.params.postid
+    const userId = req.session.user.id
+    const userLike = await db.checkUserLiked(userId,postId)
+            if(userLike[0]){
+                db.unlike(userId,postId).then(()=>{
+                    res.sendStatus(200)
+                    })
+                }
+                else{
+                    res.status(200).json('cant unlike')
+            }
+}
+async function ifLiked (req,res){
+    const db =req.app.get('db')
+    const userId = req.session.user.id
+    db.getIfLiked(userId).then(()=>{
         res.sendStatus(200)
     })
-})
 }
-function deleteLike(req,res){
-    const {postId}=req.params
-    const db =req.app.get('db')
-    db.getIdUsername(req.session.user.username)
-    .then(id=>{
-        let userId =id[0].id
-    db.unlike(userId,postId).then(()=>{
-        res.sendStatus(200)
-    })
- })
-}
-
 
 module.exports={
     addPost,
@@ -102,5 +119,6 @@ module.exports={
     addProfPic,
     getProfPic,
     addLike,
-    deleteLike
+    deleteLike,
+    ifLiked 
 }

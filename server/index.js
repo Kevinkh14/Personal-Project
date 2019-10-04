@@ -3,7 +3,7 @@ const express = require("express");
 const massive = require('massive')
 const session = require ('express-session')
 const {registerUser,loginUser,logOut}=require('./controllers/authController')
-const {addPost,getAllPost,getNonUserPost,deletePost,getPastPost,editPost,addProfPic,getProfPic} = require('./controllers/postController')
+const {addPost,getAllPost,getNonUserPost,deletePost,getPastPost,editPost,addProfPic,getProfPic,addLike,deleteLike,ifLiked} = require('./controllers/postController')
 const {addForum,getforumPost,getPastThreads,postOnForum} = require ('./controllers/forumController')
 
 const app = express()
@@ -41,16 +41,17 @@ app.get("/api/getNonUserPost",getNonUserPost)
 app.put("/api/post/:id",editPost)
 app.delete("/api/post/:id",deletePost)
 
-app.post("/api/like/:id",)
-app.delete("/api/like/:id",)
+app.post("/api/like/:postid",addLike)
+app.put("/api/like/:postid",deleteLike)
+app.get("/api/like",ifLiked)
 
 app.post('/api/profile',addProfPic)
 app.get('/api/profile',getProfPic)
 
-app.post("/api/forum",addForum)
-app.get("/api/forumPost",getforumPost)
-app.post("/api/forumPost",postOnForum)
 app.get("/api/pastThreads",getPastThreads)
+app.post("/api/forum/:id",addForum)
+app.get("/api/forumPost/:id",getforumPost)
+app.post("/api/forumPost/:id",postOnForum)
 
 
 app.listen(SERVER_PORT,()=> console.log(`Listening on port ${SERVER_PORT}`))

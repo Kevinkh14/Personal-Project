@@ -98,15 +98,15 @@ class UserProfile extends Component{
         if (this.state.redirect === true){
            return <Redirect to ='/forum'/>
         }
-        let sortedPosts = this.state.pastPost.sort((a, b) => {
-            if(a.post_id < b.post_id) {
-                return a
-            } else if(b.post_id > a.post_id) {
-                return b;
-            } else {
-                return 0;
-            }
-        })
+        // let sortedPosts = this.state.pastPost.sort((a, b) => {
+        //     if(a.post_id < b.post_id) {
+        //         return a
+        //     } else if(b.post_id > a.post_id) {
+        //         return b;
+        //     } else {
+        //         return 0;
+        //     }
+        // })
         return(
             <div className='userProf'>
             
@@ -139,7 +139,7 @@ class UserProfile extends Component{
                     <div className = "pastPostDiv">
                         <h2 className = 'pastPost'>Past Post</h2>
                         <div className = 'pastPost-container'>
-                            {sortedPosts.map((individualPost,i) =>{
+                            {this.state.pastPost.map((individualPost,i) =>{
                                 return(
                                     <>
                                         <Post

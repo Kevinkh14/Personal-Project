@@ -18,10 +18,15 @@ module.exports = {
                 bcrypt.hash(password, 12).then(hash => {
                     db.register(username, hash, email, isAdmin, avatar).then(() => {
                         let mailOptions ={
-                            from: 'kevinsemail14@gmail.com',
+                            from: '"worp.space"<kevinsemail14@gmail.com>',
                             to: email,
                             subject:'Thanks For Registering On worp',
-                            text:'it works'
+                            text:'Worp',
+                            html: `<b>
+                                <div>
+                                    <h1>Thanks for Registering with Worp</h1>
+                                </div>
+                            </b>`
                         }
                         req.session.user = {
                             username,

@@ -18,11 +18,15 @@ let transporter = nodemailer.createTransport({
 // }))
 //step 2
 let mailOptions ={
-    from: 'kevinsemail14@gmail.com',
+    from: '"worp.space"<kevinsemail14@gmail.com>',
     to: 'kever14.kh@gmail.com',
     subject:'Thanks for Registering with Worp',
     text:'it works',
-    html: '<b><h1>Thanks for Registering with Worp</h1> </b>'
+    html: `<b>
+        <div>
+            <h1>Thanks for Registering with Worp</h1>
+        </div>
+    </b>`
 }
 //step 3
 transporter.sendMail(mailOptions)

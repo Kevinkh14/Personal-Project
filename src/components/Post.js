@@ -31,6 +31,9 @@ class Post extends Component{
             this.props.update(response.data);
         })
     }
+    handleLike=()=>{
+        axios.post(`/api/like/${this.props.postid}`)
+    }
     render(){
         const {content}=this.props
         return(
@@ -52,8 +55,8 @@ class Post extends Component{
                             </div>
                         </div>
                     </div>
-                        <button className='img-like-but'><img className='img-like' src="https://img.icons8.com/cotton/64/000000/facebook-like--v2.png"></img></button>
                         <h2 className ='like-counter'>{this.props.likes}</h2>
+                        <button className='img-like-but' onClick={this.handleLike}><img className='img-like' src="https://img.icons8.com/cotton/64/000000/facebook-like--v2.png"></img></button>
                     </>
                     :
                     <>
