@@ -1,14 +1,14 @@
 
 .post-container{
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     width:40vw;
     background-color: white;
     border-style: solid;
     border-width:1px;
     border-color: rgb(207, 200, 200);
     border-radius: 2px;
-    margin-top: 2vh;
+    margin-top: 1vh;
     box-shadow: 5px 5px rgb(122, 114, 114);
 
 }
@@ -86,35 +86,45 @@
 }
 .img-like{
     cursor: pointer;
-    width:2vw;
-    height:2vh;
+    width:20px;
 }
 .img-like:active{
     transform: translateY(2px);
 }
 .img-like-but{
-    position: absolute;
     background-color: transparent;
     border-color: transparent;
     outline: none;
 }
 .like-counter{
-    position: absolute;
     font-weight: 400;
     color: grey;
+}
+.likes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-items: flex-end;
+    justify-content: center;
+    width:100px;
 }
 
 @media(max-width:900px){
     .post-container{
+        width: 95vw;
+   
+    }
+    .content-in{
+        
         width: 70vw;
     }
     .content{
-        font-size: 3vw;
+        font-size: 7vw;
     }
     .name{
         font-size:2vw;
     }
     .img-post{
-        width:25vw;
+        width:68vw;
     }
 }

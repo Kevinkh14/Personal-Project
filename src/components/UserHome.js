@@ -11,7 +11,8 @@ export default class UserHome extends Component{
         this.state={
             content:"",
             allPost:[],
-            url:""
+            url:"",
+            like:""
         }
 
     }

@@ -3,4 +3,4 @@ from users
 INNER JOIN posts 
 ON  users.id = posts.post_user_id
 WHERE username = $1
-ORDER BY posts.post_id ASC
+ORDER BY posts.post_id DESC
