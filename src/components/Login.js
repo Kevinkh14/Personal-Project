@@ -3,7 +3,8 @@ import {Link,Redirect} from 'react-router-dom'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {updateUser} from '../redux/userReducer'
-import '../styles/login.css'
+// import '../styles/login.css'
+
 
  class Login extends Component{
      constructor(){
@@ -41,12 +42,12 @@ import '../styles/login.css'
         }
         return(
             <div>
-                <nav>
-                    <Link to = "/">
-                        <button className ='worp'>Worp</button>
-                    </Link>
-                </nav>
                 <div className = "regDiv">
+                    <nav className = 'worpNav'>
+                        <Link to = "/">
+                            <button className ='worp'>Worp</button>
+                        </Link>
+                    </nav>
                     <div className ='inputs'>
                         {this.state.serverErrorMessage !== "" ? <li className ='errorMessage'>{this.state.serverErrorMessage}</li> : null}
                         <h1 style ={{"fontFamily": "'Saira', sans-serif"}}>Login</h1>

@@ -58,7 +58,7 @@ function addProfPic(req,res){
         let userId =id[0].id
         db.addProfilePic(url,userId)
         .then((res)=>{
-            res.sendStatus(200)
+            res.status(200)
         }) 
     })
 }
@@ -73,16 +73,15 @@ async function  addLike(req,res){
     const postId = +req.params.postid
     const userId = req.session.user.id
     console.log(req.session.user.id)
-    console.log(userId)
     console.log(postId)
     const userliked = await db.checkUserLiked(userId,postId)
         if(userliked[0]){
             res.status(200).json('User already liked')
         }
         else{
-            db.addLike(userId,postId).then(()=>{
+            db.addLike(userId,postId).then((posts)=>{
                 console.log(userliked)
-                res.status(200).json("ok")
+                res.status(200).json(posts)
             })
         }
     

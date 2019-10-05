@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Link,Redirect} from 'react-router-dom'
 import{connect} from "react-redux"
 import {updateUser} from '../redux/userReducer'
-import '../styles/register.css'
+// import '../styles/register.css'
 
  class Register extends Component{
     constructor(){
@@ -42,14 +42,12 @@ import '../styles/register.css'
         }
         return(
             <div >
-                <nav>
-                    <Link to = "/">
-                        <button className ='worp'>Worp</button>
-                    </Link>
-                </nav>
-                <div>
-                </div>
                 <div className="regDiv">
+                        <nav className ='worpNav'>
+                            <Link to = "/">
+                                <button className ='worp'>Worp</button>
+                            </Link>
+                        </nav>
                     <div className='inputs'>
                         {this.state.triedToClick === true ? <li className ='errorMessage'>Please Fill in all the Fields.</li> : null}
                         {this.state.serverErrorMessage !== "" ? <li className ='errorMessage'>{this.state.serverErrorMessage}</li> : null}

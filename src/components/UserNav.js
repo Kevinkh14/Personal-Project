@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {Link,Redirect} from 'react-router-dom'
-import '../styles/userNav.css'
+// import '../styles/userNav.css'
 import {connect} from 'react-redux'
 import {updateUser} from '../redux/userReducer'
 import axios from 'axios'

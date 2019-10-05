@@ -1,0 +1,136 @@
+@mixin font-style {
+    font-family: 'Saira', sans-serif;
+}
+.profile{
+    display: flex;
+    justify-content: space-between;
+    margin-top:10vh;
+}
+.profile-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    margin-left:2vw;
+    width:45vw;
+    height: 45vh;
+    box-shadow:5px 5px rgb(122, 114, 114); 
+}
+.pastPost-container{
+    display: flex;
+    height: 75vh;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;   
+    width:45vw;
+   
+}
+.avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: black;
+    border-radius: 50%;
+    border-width: 0px;
+    width: 200px;
+    height:200px;
+}
+.avatarImg{
+    vertical-align: middle;
+     width:200px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin-top:2vh;
+}
+.pastPostDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pastPost{
+    border-bottom: 2px solid black; 
+    @include font-style();
+    font-size: 2vw; 
+    width:30vw;
+}
+.joined{
+    position: sticky;
+    font-size:2vw;   
+    border-bottom: 2px solid black;
+    width: 20vw;
+    list-style: none;
+    @include font-style();
+    z-index: -1;
+}
+.joined-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.set-but,.pic-but{
+    background-color: transparent;
+    border-color:rgb(238, 229, 229);
+    border-width:1px;
+    @include font-style();   
+}
+.usernameh1{
+    @include font-style();  
+}
+.set-but:hover{
+    transform: translateY(2px);
+}
+.pic-but:hover{
+    transform: translateY(2px);
+}
+.createThread{
+    background: rgb(7, 29, 7);
+    border-color: rgb(7, 29, 7);
+    border-radius: 3px;
+    color:white
+}
+.createThread-input{
+    margin-top:7px;
+    border-radius:5px;
+    height:20px;
+}
+.threads{
+  font-size: 25px;
+  color: black;  
+}
+@media(max-width:800px){
+    .joined{
+        font-size: 5vw;
+    }
+    .pastPost{
+        font-size: 5vw;
+    }
+
+}
+@media(max-width:770px){
+    .profile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .pastPost-container{
+        width:90vw;
+    }
+    .profile-container{
+        width: 80vw;
+        height: 40vh;
+    }
+    /* .avatarImg{
+        width:130px;
+    } */
+}
+    @media(max-width:380px){
+       .avatarImg{
+           width: 150px;
+       }
+    }
+  

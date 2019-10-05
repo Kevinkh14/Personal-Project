@@ -1,0 +1,40 @@
+@mixin inputs{
+    height:5vh;
+    width:20vw;
+    border:none;
+    border-bottom: 2px solid black;
+    font-size: 20px;
+    outline: none;
+}
+.user-name{
+    @include inputs();
+}
+.pass-word{
+    @include inputs();
+}
+
+.loginBut{
+    cursor: pointer;
+    background-color:rgb(86, 128, 168) ;
+    border-color: rgb(86, 128, 168);
+    color: white;
+    width: 200px;
+    height:50px;
+    font-size: 25px;
+    border-radius: 5px;
+    font-family: 'Saira', sans-serif;
+}
+.loginBut:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+@media(max-width:850px){
+    .user-name{
+        width: 60vw;
+        background: transparent;
+    }
+    .pass-word{
+        width: 60vw;
+        background: transparent;
+    }
+}

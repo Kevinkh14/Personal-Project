@@ -4,6 +4,7 @@ import routes from "./routes"
 import {connect} from "react-redux"
 import{updateUser} from './redux/userReducer'
 import axios from 'axios';
+import style from './styles/Main.scss'
 
 class App extends React.Component{
 
@@ -11,7 +12,6 @@ class App extends React.Component{
     axios.get("/auth/user").then(response=>{
       console.log(response.data)
       this.props.updateUser(response.data)
-      // this.props.getSession()
     })
   }
 

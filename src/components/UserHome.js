@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import UserNav from './UserNav'
-import '../styles/userHome.css'
+
 import axios from 'axios'
 import Post from './Post'
 
@@ -32,12 +32,13 @@ export default class UserHome extends Component{
             .then(()=>{this.setState({content:""})})
             this.fetchPost()
     }
-    update= (allPost)=>{
+    update = (allPost)=>{
         this.setState({allPost:allPost})
     }
     fetchPost=()=>{
         axios.get('/api/AllPost').then(response=>{
             this.setState({allPost:response.data})
+            console.log(response.data)
         })           
     }
     checkUploadResult = (error,resultEvent) => {
@@ -77,6 +78,7 @@ export default class UserHome extends Component{
                                     likes ={individualPost.likes}
                                     postid ={individualPost.post_id}
                                     key={index}
+                                    onHome ={false}
                                     update ={this.update}
                                     />
                                 </>

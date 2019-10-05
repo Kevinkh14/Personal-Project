@@ -1,0 +1,131 @@
+@mixin navbuts {
+    cursor: pointer;
+    font-family: 'Saira', sans-serif;
+    background-color: transparent;
+    border-color: transparent;
+    font-size:1.2vw;
+    outline: none;
+}
+@mixin navbutHover{
+    box-shadow: 0 0px #666;
+    transform: translateY(4px);
+    text-shadow: 2px 2px 5px rgb(92, 92, 92);
+}
+.usernav{
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height:75px;
+    width:100vw;
+}
+.nav-div{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+.search-bar{
+    width:30vw;
+    height:35px;
+    border-radius: 5px;
+    background-color: white;
+    border-color: rgb(200, 210, 211);
+    border-width: .5px;
+}
+.imgtwo{
+    width:60px;
+    position: static;
+}
+.hamBut{
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+}
+.prof-but{
+    @include navbuts();
+}
+.logout-but{
+    @include navbuts();
+}
+.home-but{
+    @include navbuts();
+}
+.home-but:hover {
+    @include navbutHover();
+  }
+  .logout-but:hover{
+    @include navbutHover();
+  }
+  .prof-but:hover{
+    @include navbutHover();
+  }
+
+div.side-menu,.side-menu-open,.side-menu-close{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;;
+    position: fixed;
+    right:0vw;
+    height:50vh;
+    width: 15vw;
+    box-shadow: 5px 5px rgb(146, 138, 138);
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(200, 210, 211);
+    z-index: 0;
+    transform: translateX(300px);
+    transform: translateY(-600px);
+}
+
+.side-menu-open{
+    display: flex;
+    animation: open .5s forwards ease;
+}
+.side-menu-close{
+    display: flex;
+    animation: close .5s forwards ease
+}
+@keyframes open{
+    to{
+      
+        transform: translateY(-2px);
+       
+    }
+}
+@keyframes close{
+    from {
+       
+        transform: translateY(0px);
+        
+    }
+    to{
+       
+        transform: translateY(-600px);
+        
+    }
+}
+@keyframes open-butt{
+    to{
+        transform: -100px
+    }
+}
+@media(max-width:814px){
+    div.side-menu,.side-menu-open,.side-menu-close{
+        width: 30vw;
+        height:40vh; 
+    } 
+    .home-but,.prof-but,.logout-but{
+        font-size: 3vw;
+    }
+}
+@media(max-width:400px){
+    div.side-menu,.side-menu-open,.side-menu-close{
+        width: 60vw;
+        height: 40vh;
+    }
+    .home-but,.prof-but,.logout-but{
+        font-size: 5vw;
+    }
+}

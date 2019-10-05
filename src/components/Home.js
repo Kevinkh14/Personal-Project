@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
 import Nav from "./Nav"
-import '../styles/home.css'
 import Post from './Post'
 import axios from 'axios'
 
@@ -33,6 +32,7 @@ export default class Home extends Component{
                                     update ={this.update}
                                     username={individualPost.username}
                                     url ={individualPost.img_url}
+                                    onHome ={true}
                                     key ={i}
                                     />
                                 </>

@@ -49,9 +49,10 @@ app.post('/api/profile',addProfPic)
 app.get('/api/profile',getProfPic)
 
 app.get("/api/pastThreads",getPastThreads)
-app.post("/api/forum/:id",addForum)
-app.get("/api/forumPost/:id",getforumPost)
-app.post("/api/forumPost/:id",postOnForum)
+app.post("/api/forum/",addForum)
+app.get("/api/forumPost/:forumid",getforumPost)
+app.post("/api/forumPost/:forumid",postOnForum)
+
 
 
 app.listen(SERVER_PORT,()=> console.log(`Listening on port ${SERVER_PORT}`))

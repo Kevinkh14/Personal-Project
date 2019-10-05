@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
 import UserNav from './UserNav'
-import '../styles/userProfile.css'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
 import Post from './Post'
@@ -19,6 +18,7 @@ class UserProfile extends Component{
             profilePic:[],
             url:"",
             id:"",
+            forumId:"",
             createPostStatus:false,
             redirect :false
         }
@@ -47,13 +47,15 @@ class UserProfile extends Component{
         this.setState({forum:e.target.value})
     }
     createForum =()=>{
-        const {forum,id} = this.state
-        axios.post("/api/forum/",{
-            forum, id
+        const {forum,id,forumId} = this.state
+        console.log(this.state)
+        axios.post(`/api/forum`,{
+            forum, id, forumId
         }
         ).then(response=>{
             this.setState({redirect:true})
             console.log(this.state.id)
+            console.log(response)
         })
            
     }
@@ -123,14 +125,15 @@ class UserProfile extends Component{
                             <button className ='pic-but' onClick ={()=>widget.open()}>Add Profile Picture</button>
                             <button className ='set-but' onClick ={this.handleprofilePic}>Set Profile Picture</button>
                         </div>
-                        <input placeholder='Forum Name' onChange ={this.handleForumName}></input>
-                        <button onClick={this.createForum}>create Forum</button>
+                        <input className ='createThread-input' placeholder='Thread Name' onChange ={this.handleForumName}></input>
+                        <button className ='createThread' onClick={this.createForum}>Create Thread</button>
                         <li className ='joined'>Joined Threads</li>
                         <div>{this.state.pastThreads.map((individualThreads)=>{
+                            console.log(individualThreads)
                             return(
                                 <Threads
                                 forum ={individualThreads.forum_name}
-                                id ={individualThreads.forum_id}
+                                forumid ={individualThreads.forum_id}
                                 updateThreads ={this.updateThreads}
                                 />
                             )
@@ -140,6 +143,7 @@ class UserProfile extends Component{
                         <h2 className = 'pastPost'>Past Post</h2>
                         <div className = 'pastPost-container'>
                             {this.state.pastPost.map((individualPost,i) =>{
+                                console.log(individualPost)
                                 return(
                                     <>
                                         <Post
@@ -147,6 +151,8 @@ class UserProfile extends Component{
                                         id ={individualPost.post_id}
                                         url={individualPost.img_url}
                                         onUserProfile ={true}
+                                        onHome ={false}
+                                        likes ={individualPost.likes}
                                         key ={i}
                                         update ={this.update}
                                         />

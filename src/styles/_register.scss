@@ -1,0 +1,84 @@
+@mixin reginputs {
+    height:5vh;
+    width:20vw;
+    border:none;
+    border-bottom: 2px solid black;
+    font-size: 20px;
+    outline: none;
+}
+.regDiv{
+    display: flex;
+    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+}
+.inputs{
+    height: 100vh;
+    width:60vw;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   flex-direction: column;
+   justify-content: space-evenly;
+   background: white;
+   box-shadow: 5px 5px 5px 5px  rgb(124, 115, 115);
+}
+.worpNav{
+    margin-left:10vw;
+}
+.username{
+  @include reginputs();
+}
+.password{
+    @include reginputs();
+}
+.email{
+    @include reginputs();
+}
+.signUP{
+    background-color:rgb(204, 49, 70);
+    border-color: rgb(204, 49, 70);
+    width: 200px;
+    height:50px;
+    color: white;
+    font-size:25px;
+    border-radius: 5px;
+    font-family: 'Saira', sans-serif;
+}
+.signUP:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+.errorMessage{
+    color:red;
+    list-style: none;
+}
+@media(max-width:850px){
+    .inputs{
+
+        height: 100vh;
+        width: 80vw;
+        background: transparent;
+        box-shadow: none;
+    }
+    .worpNav{
+        margin-left:0;
+    }
+    .regDiv{
+        flex-direction: column;
+    }
+    .username{
+        width: 50vw;
+        background: transparent;
+    }
+    .password{
+        width: 50vw;
+        background: transparent;
+    }
+    .email{
+        width: 50vw;
+        background: transparent;
+    }
+    
+}

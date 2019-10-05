@@ -11,7 +11,8 @@ export default class Forums extends Component{
         this.state={
             content:"",
             allPost:[],
-            url:""
+            url:"",
+            forumid:""
         }
 
     }
@@ -25,7 +26,7 @@ export default class Forums extends Component{
         e.preventDefault()
         console.log(this.state.url)
         axios
-            .post("/api/forumPost",{
+            .post(`/api/forumPost/${this.props.match.params.forumId}`,{
                 content:this.state.content,
                 url:this.state.url
             })
@@ -35,10 +36,13 @@ export default class Forums extends Component{
         this.setState({allPost:allPost})
     }
     fetchPost=()=>{
-        axios.get('/api/forumPost').then(response=>{
+        axios.get(`/api/forumPost/${this.props.match.params.forumId}`).then(response=>{
+            console.log(response.data)
             this.setState({allPost:response.data})
         })           
     }
+  
+
     checkUploadResult = (error,resultEvent) => {
         if (resultEvent.event === "success") {
             console.log("Picture uploaded successfully")
@@ -62,7 +66,6 @@ export default class Forums extends Component{
             <div>
                 <UserNav/>
                 <div className='userHome'>
-                    {this.props.forum}
                     <div className ='post-div'>
                         {this.state.allPost.map((individualPost,index) =>{
                             return(

@@ -1,0 +1,140 @@
+@mixin like-unlike-but{
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+}
+@mixin like-unlike {
+    cursor: pointer;
+    width:20px;
+}
+.post-container{
+    display: flex;
+    align-items: flex-start;
+    width:40vw;
+    background-color: white;
+    border-radius: 0px;
+    margin-top: 1vh;
+    box-shadow: 2px 2px 2px 2px rgb(122, 114, 114);
+
+}
+.content{
+    font-size: 1.5vw;
+    color: rgb(97, 94, 94);
+    font-family: 'Saira', sans-serif;
+}
+.text{
+    display: flex;
+    justify-content: flex-start;
+    width:20vw;
+}
+.name-div{
+  width: 5vw;
+}
+.name{
+    font-size: 1vw;
+    color: rgb(167, 174, 180);
+    text-decoration: underline;
+    font-weight: lighter;
+    position: absolute;
+    margin-left:1vw
+    
+}
+.pastPostDiv{
+    position: static;
+}
+.content-in{
+    display: fixed;
+    width: 35vw;
+    display: flex;
+    justify-content: space-between;
+}
+.text-pic{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 3vw;
+    margin-right:5vw;
+}
+.img-post{
+    width:25vw;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 5px;
+}
+.delete-but{
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'Saira', sans-serif;
+}
+.delete-but:hover{
+    transform: translateY(2px);
+}
+.edit-but{
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'Saira', sans-serif;
+}
+.edit-but:hover{
+    transform: translateY(2px);
+}
+.save-but{
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'Saira', sans-serif;
+}
+.input-edit{
+    height:10vh;
+    width:100vh;
+    font-size: 2vw;
+
+}
+.img-like{
+    @include like-unlike();
+    color:blue;
+}
+.img-like:active{
+    transform: translateY(2px);
+}
+.img-like-but{
+    @include like-unlike-but();
+}
+.like-counter{
+    font-weight: 400;
+    color: grey;
+    font-size: 15px;
+}
+.unlike-but{
+    @include like-unlike-but();
+}
+.img-unlike{
+    @include like-unlike();
+}
+.likes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-items: flex-end;
+    justify-content: center;
+    width:100px;
+}
+
+@media(max-width:900px){
+    .post-container{
+        width: 95vw;
+   
+    }
+    .content-in{
+        
+        width: 70vw;
+    }
+    .content{
+        font-size: 7vw;
+    }
+    .name{
+        font-size:2vw;
+    }
+    .img-post{
+        width:68vw;
+    }
+}

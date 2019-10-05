@@ -1,0 +1,12 @@
+body {
+    background:rgb(218,224,230);
+}
+.non-post{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top:8vh;
+}
+footer{
+    height: 30vh;
+}

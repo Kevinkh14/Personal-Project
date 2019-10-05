@@ -7,10 +7,9 @@ class Threads extends React.Component{
     render(){
         return(
             <div>
-                <Link to ='/forum'>
-                    <h1>{this.props.forum}</h1>
+                <Link to ={`/forum/${this.props.forumid}`}>
+                    <h1 className ='threads'>{this.props.forum}</h1>
                 </Link>
-                {console.log(this.props.forum)}
             </div>
         )
     }
