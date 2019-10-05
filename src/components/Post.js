@@ -8,8 +8,18 @@ class Post extends Component{
         this.state={
             editStatus:false,
             inputField:"",
+            // profPic:""
         }
     }
+    // componentDidMount(){
+    //     this.getProfilePic()
+    // }
+    // getProfilePic=()=>{
+    //     axios
+    //     .get("/api/profile").then(response=>{
+    //         this.setState({profPic:response.data[0].avatar_img_url})
+    //     })
+    // }
 
     handleEdit=()=>{
         this.setState({editStatus:false})
@@ -47,7 +57,9 @@ class Post extends Component{
                     this.state.editStatus ===false?
                     <>
                     <div className = 'content-in'>
+                        <div className = 'left-of-post'>
                         <div className ='name-div'>
+                            <img className ='profPic' src = {this.props.profPic}></img>
                             <h2 className ='name'>{this.props.username}</h2>
                         </div>
                         {this.props.onHome === false ?
@@ -57,11 +69,15 @@ class Post extends Component{
                             <h2 className ='like-counter'>{this.props.likes}</h2>
                             <button onClick ={this.handleUnlike} className ='unlike-but'><img className ='img-unlike' src="https://img.icons8.com/windows/32/000000/thumbs-down.png"/></button>
                         </div>
+                        
                         </>
                         :
-                        <>
-                        </>
+                        <div className ='likes'>
+                            <h2 className ='like-counter'>{this.props.likes}</h2>
+                         </div>
+                         
                         }
+                        </div>
                         <div className = 'text-pic'>
                             <div className ='text'>
                                 <h1 className ='content'>{content}</h1>

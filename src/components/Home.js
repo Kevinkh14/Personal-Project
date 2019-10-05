@@ -16,15 +16,13 @@ export default class Home extends Component{
         })
     }
 
-    
-    
-
     render(){
         return(
             <div>
                 <Nav/>
                 <div className ='non-post'>
                 {this.state.allPost.map((individualPost,i) =>{
+                    console.log(individualPost)
                             return(
                                 <>
                                     <Post
@@ -32,6 +30,8 @@ export default class Home extends Component{
                                     update ={this.update}
                                     username={individualPost.username}
                                     url ={individualPost.img_url}
+                                    likes = {individualPost.likes}
+                                    profPic ={individualPost.avatar_img_url}
                                     onHome ={true}
                                     key ={i}
                                     />

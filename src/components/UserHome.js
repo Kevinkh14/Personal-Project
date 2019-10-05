@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import UserNav from './UserNav'
-
+import Threads from './Threads'
 import axios from 'axios'
 import Post from './Post'
 
@@ -12,12 +12,15 @@ export default class UserHome extends Component{
             content:"",
             allPost:[],
             url:"",
-            like:""
+            like:"",
+            allThreads:[]
         }
 
     }
     componentDidMount(){
         this.fetchPost();
+        this.getAllThreads();
+        console.log(this.getAllThreads())
     }
     handleChangeOfPost=(e)=>{
         this.setState({content:e.target.value})
@@ -41,6 +44,12 @@ export default class UserHome extends Component{
             console.log(response.data)
         })           
     }
+    getAllThreads =()=>{
+        axios.get("/api/allThreads").then(response=>{
+            this.setState({allThreads:response.data})
+        })
+
+    }
     checkUploadResult = (error,resultEvent) => {
         if (resultEvent.event === "success") {
             console.log("Picture uploaded successfully")
@@ -63,8 +72,20 @@ export default class UserHome extends Component{
                 return a.id - b.id;
             });
         return(
-            <div>
+            <div >
                 <UserNav/>
+                <div className = 'allThreads'>
+                <div>{this.state.allThreads.map((individualThreads)=>{
+                            console.log(individualThreads)
+                            return(
+                                <Threads
+                                forum ={individualThreads.forum_name}
+                                forumid ={individualThreads.forum_id}
+                                updateThreads ={this.updateThreads}
+                                />
+                            )
+                    })}</div>
+                </div>
                 <div className='userHome'>
                     <div className ='post-div'>
                         {sortedArr.map((individualPost,index) =>{
@@ -77,6 +98,7 @@ export default class UserHome extends Component{
                                     url ={individualPost.img_url}
                                     likes ={individualPost.likes}
                                     postid ={individualPost.post_id}
+                                    profPic ={individualPost.avatar_img_url}
                                     key={index}
                                     onHome ={false}
                                     update ={this.update}

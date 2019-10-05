@@ -35,10 +35,17 @@ function getPastThreads (req,res){
         res.status(200).json(posts)
     })
 }
+function getAllThreads (req,res){
+    const db = req.app.get ('db')
+    db.forum.getAllThreads().then(post=>{
+        res.status(200).json(post)
+    })
+}
 
 module.exports={
     addForum,
     getforumPost,
     getPastThreads,
-    postOnForum
+    postOnForum,
+    getAllThreads
 }

@@ -125,8 +125,10 @@ class UserProfile extends Component{
                             <button className ='pic-but' onClick ={()=>widget.open()}>Add Profile Picture</button>
                             <button className ='set-but' onClick ={this.handleprofilePic}>Set Profile Picture</button>
                         </div>
-                        <input className ='createThread-input' placeholder='Thread Name' onChange ={this.handleForumName}></input>
-                        <button className ='createThread' onClick={this.createForum}>Create Thread</button>
+                        <div className = 'thread-in-but'>
+                            <input className ='createThread-input' placeholder='Thread Name' onChange ={this.handleForumName}></input>
+                            <button className ='createThread' onClick={this.createForum}>Create Thread</button>
+                        </div>
                         <li className ='joined'>Joined Threads</li>
                         <div>{this.state.pastThreads.map((individualThreads)=>{
                             console.log(individualThreads)
@@ -153,6 +155,7 @@ class UserProfile extends Component{
                                         onUserProfile ={true}
                                         onHome ={false}
                                         likes ={individualPost.likes}
+                                        profPic = {individualPost.avatar_img_url}
                                         key ={i}
                                         update ={this.update}
                                         />

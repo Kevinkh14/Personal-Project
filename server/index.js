@@ -4,7 +4,7 @@ const massive = require('massive')
 const session = require ('express-session')
 const {registerUser,loginUser,logOut}=require('./controllers/authController')
 const {addPost,getAllPost,getNonUserPost,deletePost,getPastPost,editPost,addProfPic,getProfPic,addLike,deleteLike,ifLiked} = require('./controllers/postController')
-const {addForum,getforumPost,getPastThreads,postOnForum} = require ('./controllers/forumController')
+const {addForum,getforumPost,getPastThreads,postOnForum,getAllThreads} = require ('./controllers/forumController')
 
 const app = express()
 
@@ -49,6 +49,7 @@ app.post('/api/profile',addProfPic)
 app.get('/api/profile',getProfPic)
 
 app.get("/api/pastThreads",getPastThreads)
+app.get("/api/allThreads",getAllThreads )
 app.post("/api/forum/",addForum)
 app.get("/api/forumPost/:forumid",getforumPost)
 app.post("/api/forumPost/:forumid",postOnForum)

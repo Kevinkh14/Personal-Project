@@ -75,7 +75,10 @@ export default class Forums extends Component{
                                     username ={individualPost.username}
                                     url ={individualPost.img_url}
                                     key={index}
+                                    likes ={individualPost.likes}
+                                    onHome ={false}
                                     update ={this.update}
+                                    profPic ={individualPost.avatar_img_url}
                                     />
                                 </>
                             )
