@@ -39,7 +39,7 @@
 }
 .avatarImg{
     vertical-align: middle;
-     width:200px;
+    width:200px;
     border-radius: 50%;
     border-style: solid;
     border-width: 1px;
@@ -76,6 +76,7 @@
     background-color: transparent;
     border-color:rgb(238, 229, 229);
     border-width:1px;
+    margin-bottom: 3px;
     @include font-style();   
 }
 .usernameh1{
@@ -97,8 +98,7 @@
 .createThread-input{
     margin-top:7px;
     height:20px;
-    border:none;
-    border-bottom: 2px solid black;
+    border: 2px solid black;
     background:transparent; 
 }
 .threads{
@@ -108,9 +108,11 @@
 @media(max-width:800px){
     .joined{
         font-size: 5vw;
+        width: 130px;
     }
     .pastPost{
         font-size: 5vw;
+        width:130px
     }
     .threads{
         font-size: 15px;

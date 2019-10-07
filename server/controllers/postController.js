@@ -80,7 +80,6 @@ async function  addLike(req,res){
         }
         else{
             db.addLike(userId,postId).then((posts)=>{
-                console.log(userliked)
                 res.status(200).json(posts)
             })
         }
@@ -92,20 +91,13 @@ async function deleteLike(req,res){
     const userId = req.session.user.id
     const userLike = await db.checkUserLiked(userId,postId)
             if(userLike[0]){
-                db.unlike(userId,postId).then(()=>{
-                    res.sendStatus(200)
+                db.unlike(userId,postId).then((post)=>{
+                    res.status(200).json(post)
                     })
                 }
                 else{
                     res.status(200).json('cant unlike')
             }
-}
-async function ifLiked (req,res){
-    const db =req.app.get('db')
-    const userId = req.session.user.id
-    db.getIfLiked(userId).then(()=>{
-        res.sendStatus(200)
-    })
 }
 
 module.exports={
@@ -118,6 +110,5 @@ module.exports={
     addProfPic,
     getProfPic,
     addLike,
-    deleteLike,
-    ifLiked 
+    deleteLike
 }

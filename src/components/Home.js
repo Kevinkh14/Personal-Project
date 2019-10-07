@@ -22,7 +22,6 @@ export default class Home extends Component{
                 <Nav/>
                 <div className ='non-post'>
                 {this.state.allPost.map((individualPost,i) =>{
-                    console.log(individualPost)
                             return(
                                 <>
                                     <Post

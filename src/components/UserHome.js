@@ -20,7 +20,6 @@ export default class UserHome extends Component{
     componentDidMount(){
         this.fetchPost();
         this.getAllThreads();
-        console.log(this.getAllThreads())
     }
     handleChangeOfPost=(e)=>{
         this.setState({content:e.target.value})
@@ -41,7 +40,6 @@ export default class UserHome extends Component{
     fetchPost=()=>{
         axios.get('/api/AllPost').then(response=>{
             this.setState({allPost:response.data})
-            console.log(response.data)
         })           
     }
     getAllThreads =()=>{
@@ -75,8 +73,8 @@ export default class UserHome extends Component{
             <div >
                 <UserNav/>
                 <div className = 'allThreads'>
+                    <h1 className = 'allThreads-h1'>All Threads</h1>
                 <div>{this.state.allThreads.map((individualThreads)=>{
-                            console.log(individualThreads)
                             return(
                                 <Threads
                                 forum ={individualThreads.forum_name}
@@ -89,7 +87,6 @@ export default class UserHome extends Component{
                 <div className='userHome'>
                     <div className ='post-div'>
                         {sortedArr.map((individualPost,index) =>{
-                            console.log(individualPost)
                             return(
                                 <>
                                     <Post
@@ -107,7 +104,7 @@ export default class UserHome extends Component{
                             )
                         })}
                     </div>
-                    <footer className ='foot'>.</footer>
+                    <div className ='foot'>.</div>
                     <div className = 'create-post'>
                         <input className ='create-input'placeholder ='Create Post' onChange={this.handleChangeOfPost} style={{"cursor":"text"}}value ={this.state.content}></input>
                             <button className ='create-post-but' onClick ={this.handlePost}>Create Post</button>

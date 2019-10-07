@@ -10,7 +10,6 @@ class App extends React.Component{
 
   componentDidMount(){
     axios.get("/auth/user").then(response=>{
-      console.log(response.data)
       this.props.updateUser(response.data)
     })
   }

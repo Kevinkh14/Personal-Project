@@ -36,8 +36,8 @@ class Post extends Component{
         })
     }
     handleLike=()=>{
-        axios.post(`/api/like/${this.props.postid}`).then(()=>{
-            this.props.update(this.props.likes)
+        axios.post(`/api/like/${this.props.postid}`).then((res)=>{
+            this.props.update(res.data)
             console.log(this.props.likes)
         })
     }
@@ -59,15 +59,15 @@ class Post extends Component{
                     <div className = 'content-in'>
                         <div className = 'left-of-post'>
                         <div className ='name-div'>
-                            <img className ='profPic' src = {this.props.profPic}></img>
+                            <img className ='profPic' src = {this.props.profPic} alt =''></img>
                             <h2 className ='name'>{this.props.username}</h2>
                         </div>
                         {this.props.onHome === false ?
                         <>
                         <div className='likes'>
-                            <button className='img-like-but' onClick={this.handleLike}><img className='img-like' src="https://img.icons8.com/cotton/64/000000/facebook-like--v2.png"></img></button>
+                            <button className='img-like-but' onClick={this.handleLike}><img className='img-like' src="https://img.icons8.com/cotton/64/000000/facebook-like--v2.png" alt =''></img></button>
                             <h2 className ='like-counter'>{this.props.likes}</h2>
-                            <button onClick ={this.handleUnlike} className ='unlike-but'><img className ='img-unlike' src="https://img.icons8.com/windows/32/000000/thumbs-down.png"/></button>
+                            <button onClick ={this.handleUnlike} className ='unlike-but'><img className ='img-unlike' src="https://img.icons8.com/windows/32/000000/thumbs-down.png" alt =''/></button>
                         </div>
                         
                         </>
