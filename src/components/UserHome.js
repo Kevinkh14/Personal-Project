@@ -100,8 +100,8 @@ export default class UserHome extends Component{
                                 </>
                             )
                         })}
-                    </div>
                     <div className ='foot'>.</div>
+                    </div>
                     <div className = 'create-post'>
                         <input className ='create-input'placeholder ='Create Post' onChange={this.handleChangeOfPost} style={{"cursor":"text"}}value ={this.state.content}></input>
                             <button className ='create-post-but' onClick ={this.handlePost}>Create Post</button>
