@@ -55,7 +55,7 @@ export default class Forums extends Component{
         const widget = window.cloudinary.createUploadWidget(
             {
             cloudName: "kevin14",
-            uploadPreset: "xoy9arl8",
+            uploadPreset: "zfjpjtrr",
             sources: ["local", "url", "dropbox", "facebook", "instagram"]
             },
             (error, result) => {

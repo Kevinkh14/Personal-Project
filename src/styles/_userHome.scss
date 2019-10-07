@@ -65,3 +65,8 @@
     overflow: auto;
     box-shadow: 2px 2px 2px 2px rgb(146, 139, 139);
 }
+@media(max-width:900px){
+    .allThreads{
+        display: none;
+    }
+}
