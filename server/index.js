@@ -10,6 +10,7 @@ const {addForum,getforumPost,getPastThreads,postOnForum,getAllThreads} = require
 const app = express()
 
 app.use(express.json())
+app.use( express.static( `${__dirname}/../build` ) );
 
 const {SERVER_PORT,CONNECTION_STRING} = process.env
 
@@ -32,7 +33,7 @@ app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
-app.use( express.static( `${__dirname}/../build` ) );
+
 
 app.post("/auth/register", registerUser)
 app.post("/auth/login", loginUser)
