@@ -92,7 +92,10 @@ class UserProfile extends Component{
                 cloudName: "kevin14",
                 uploadPreset: "xoy9arl8",
                 sources: ["local", "url", "dropbox", "facebook", "instagram"],
-                
+                cropping: true,
+                cropping_aspect_ratio : 1,
+                show_skip_crop_button: false,
+                Default: false
                 },
                 (error, result) => {
                 this.checkUploadResult(error, result);
