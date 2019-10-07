@@ -28,9 +28,11 @@
     width:20vw;
 }
 .name-div{
-    margin-left:5px;
+    margin-left:25px;
     display: flex;
-    height:35px;
+    align-items: center;
+    height:45px;
+    width:100px;
 }
 .name{
     font-size: 1vw;
@@ -38,7 +40,7 @@
     text-decoration: underline;
     font-weight: lighter;
     // position: absolute;
-    margin-left:1vw
+    
     
 }
 .pastPostDiv{
@@ -48,7 +50,7 @@
     // display: fixed;
     width: 35vw;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     
 }
 .text-pic{
@@ -127,11 +129,12 @@
     border-radius: 50%;
 }
 .left-of-post{
-    width:9vw;
+    width:5vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position: static;
 }
 
 @media(max-width:900px){
