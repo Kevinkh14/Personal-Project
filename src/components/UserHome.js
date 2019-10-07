@@ -66,9 +66,6 @@ export default class UserHome extends Component{
             (error, result) => {
             this.checkUploadResult(error, result);
             })
-            let sortedArr = this.state.allPost.sort((a, b) => {
-                return a.id - b.id;
-            });
         return(
             <div >
                 <UserNav/>
@@ -86,7 +83,7 @@ export default class UserHome extends Component{
                 </div>
                 <div className='userHome'>
                     <div className ='post-div'>
-                        {sortedArr.map((individualPost,index) =>{
+                        {this.state.allPost.map((individualPost,index) =>{
                             return(
                                 <>
                                     <Post
