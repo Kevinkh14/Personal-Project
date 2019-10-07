@@ -130,13 +130,14 @@ class UserProfile extends Component{
                             <button className ='createThread' onClick={this.createForum}>Create Thread</button>
                         </div>
                         <li className ='joined'>Joined Threads</li>
-                        <div>{this.state.pastThreads.map((individualThreads)=>{
-                            console.log(individualThreads)
+                        <div>{this.state.pastThreads.map((individualThreads,i)=>{
+                        
                             return(
                                 <Threads
                                 forum ={individualThreads.forum_name}
                                 forumid ={individualThreads.forum_id}
                                 updateThreads ={this.updateThreads}
+                                key ={i}
                                 />
                             )
                         })}</div>
@@ -145,7 +146,7 @@ class UserProfile extends Component{
                         <h2 className = 'pastPost'>Past Post</h2>
                         <div className = 'pastPost-container'>
                             {this.state.pastPost.map((individualPost,i) =>{
-                                console.log(individualPost)
+                           
                                 return(
                                     <>
                                         <Post

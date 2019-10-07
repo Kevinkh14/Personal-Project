@@ -71,12 +71,13 @@ export default class UserHome extends Component{
                 <UserNav/>
                 <div className = 'allThreads'>
                     <h1 className = 'allThreads-h1'>All Threads</h1>
-                <div>{this.state.allThreads.map((individualThreads)=>{
+                <div>{this.state.allThreads.map((individualThreads,index)=>{
                             return(
                                 <Threads
                                 forum ={individualThreads.forum_name}
                                 forumid ={individualThreads.forum_id}
                                 updateThreads ={this.updateThreads}
+                                key ={index}
                                 />
                             )
                     })}</div>
