@@ -31,8 +31,9 @@ export default class UserHome extends Component{
                 content:this.state.content,
                 url:this.state.url
             })
-            .then(()=>{this.setState({content:""})})
+            .then(()=>{this.setState({content:""})},
             this.fetchPost()
+            )
     }
     update = (allPost)=>{
         this.setState({allPost:allPost})
