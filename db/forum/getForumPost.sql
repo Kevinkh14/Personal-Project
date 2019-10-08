@@ -5,3 +5,4 @@ ON  users.id = posts.post_user_id
 inner join forum
 on posts.post_forum_id = forum.forum_id
 where forum.forum_id = $1
+ORDER BY posts.post_id DESC
