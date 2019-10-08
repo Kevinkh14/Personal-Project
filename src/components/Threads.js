@@ -8,7 +8,7 @@ class Threads extends React.Component{
         return(
             <div>
                 <Link to ={`/forum/${this.props.forumid}`}>
-                    <h1 className ='threads'>{this.props.forum}</h1>
+                    <h1 className ='threads'>w/{this.props.forum}</h1>
                 </Link>
             </div>
         )

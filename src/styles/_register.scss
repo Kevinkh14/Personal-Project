@@ -1,4 +1,4 @@
-@mixin reginputs {
+%reginputs {
     height:5vh;
     width:20vw;
     border:none;
@@ -28,13 +28,13 @@
     margin-left:10vw;
 }
 .username{
-  @include reginputs();
+ @extend %reginputs;
 }
 .password{
-    @include reginputs();
+    @extend %reginputs;
 }
 .email{
-    @include reginputs();
+    @extend %reginputs;
 }
 .signUP{
     background-color:rgb(204, 49, 70);

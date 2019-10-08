@@ -98,12 +98,17 @@
 .createThread-input{
     margin-top:7px;
     height:20px;
-    border: 2px solid black;
-    background:transparent; 
+    border:none;
+    border-bottom: 2px solid black;
+    background:rgb(209, 205, 205); 
+    backdrop-filter: blur(9px);
+    border-radius: 3px;
 }
 .threads{
   font-size: 25px;
-  color: black;  
+  color: rgb(61, 58, 58);  
+  @include font-style();
+  letter-spacing: 1px;
 }
 @media(max-width:800px){
     .joined{
@@ -130,7 +135,7 @@
     }
     .profile-container{
         width: 80vw;
-        height: 40vh;
+        height: 60vh;
     }
     /* .avatarImg{
         width:130px;

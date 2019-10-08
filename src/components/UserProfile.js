@@ -47,15 +47,13 @@ class UserProfile extends Component{
         this.setState({forum:e.target.value})
     }
     createForum =()=>{
-        const {forum,id,forumId} = this.state
+        const {forum,id} = this.state
         console.log(this.state)
         axios.post(`/api/forum`,{
-            forum, id, forumId
+            forum, id
         }
-        ).then(response=>{
-            this.setState({redirect:true})
-            console.log(this.state.id)
-            console.log(response)
+        ).then(()=>{
+            window.location.reload(true)
         })
            
     }
@@ -100,9 +98,6 @@ class UserProfile extends Component{
                 (error, result) => {
                 this.checkUploadResult(error, result);
                 })
-        if (this.state.redirect === true){
-           return <Redirect to ='/forum'/>
-        }
         // let sortedPosts = this.state.pastPost.sort((a, b) => {
         //     if(a.post_id < b.post_id) {
         //         return a

@@ -69,7 +69,7 @@ export default class UserHome extends Component{
             this.checkUploadResult(error, result);
             })
         return(
-            <div >
+            <div>
                 <UserNav/>
                 <div className = 'allThreads'>
                     <h1 className = 'allThreads-h1'>All Threads</h1>

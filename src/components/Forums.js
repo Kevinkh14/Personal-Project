@@ -31,6 +31,7 @@ export default class Forums extends Component{
                 url:this.state.url
             })
             this.fetchPost()
+            window.location.reload(true)
     }
     update= (allPost)=>{
         this.setState({allPost:allPost})

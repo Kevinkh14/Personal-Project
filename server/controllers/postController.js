@@ -75,16 +75,12 @@ async function  addLike(req,res){
     console.log(req.session.user.id)
     console.log(postId)
     const userliked = await db.checkUserLiked(userId,postId)
-        if(userliked[0]){
-            res.status(200).json('User already liked')
-        }
-        else{
+        if(!userliked[0]){
             db.addLike(userId,postId).then((posts)=>{
                 res.status(200).json(posts)
-                console.log(posts)
+                
             })
         }
-    
 }
 async function deleteLike(req,res){
     const db =req.app.get('db')
@@ -96,9 +92,6 @@ async function deleteLike(req,res){
                     res.status(200).json(post)
                     })
                 }
-                else{
-                    res.status(200).json('cant unlike')
-            }
 }
 
 module.exports={
