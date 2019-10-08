@@ -81,6 +81,7 @@ async function  addLike(req,res){
         else{
             db.addLike(userId,postId).then((posts)=>{
                 res.status(200).json(posts)
+                console.log(posts)
             })
         }
     

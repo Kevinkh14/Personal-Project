@@ -38,12 +38,14 @@ class Post extends Component{
     handleLike=()=>{
         axios.post(`/api/like/${this.props.postid}`).then((res)=>{
             this.props.update(res.data)
+            window.location.reload(true)
             console.log(res.data)
         })
     }
     handleUnlike=()=>{
         axios.put(`/api/like/${this.props.postid}`).then(response=>{
             console.log(response)
+            window.location.reload(true)
             this.props.update(response.data)
         })
     }
