@@ -29,7 +29,7 @@ import {updateUser} from '../redux/userReducer'
             axios.post("/auth/login", {
                 username, password
             }).then(response => {
-                this.props.updateUser(response.data);
+                this.props.updateUser(response.data)
                 this.setState({redirect: true})
             }).catch(err => {
                 this.setState({serverErrorMessage: err.response.data.error});
