@@ -18,12 +18,24 @@
     background-color: rgb(25, 109, 124);
     color: white;
     border-color: transparent;
-    width: 300px;
-    height:40px;
     font-size: 20px;
 }
-.create-post-but:hover{
-    transform: translateY(2px);
+.create{
+    background: white;
+    position: fixed;
+    bottom:5vh;
+    left:30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 500px;
+    width: 750px;
+}
+.create-content{
+    display: flex;
+    flex-direction: column;
 }
 .post-div{
     display: flex;
@@ -37,17 +49,13 @@
     width: 100vw;
 }
 .create-input{
-    height: 30px;
-    border-radius: 5px;
-    border-width: 1px;
-    font-size: 15px;
+    margin-bottom:40px;
 }
 .add-pic-but{
+    margin-top:10px;
     background-color: rgb(25, 109, 124);  
     border-color:transparent;
     color:white;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
 }
 .add-pic-but:hover{
     transform: translateY(-2px);
@@ -60,7 +68,7 @@
     background: white;
     height:50vh;
     width: 25vw;
-    position: absolute;
+    position: fixed;
     top:20vh;
     margin-left:30px;
     overflow: auto;
@@ -70,6 +78,9 @@
     border-bottom: solid 2px black;
     width: 380px;
     font-family: 'Saira', sans-serif;
+}
+.thumnail{
+    width: 300px;
 }
 
 @media(max-width:900px){

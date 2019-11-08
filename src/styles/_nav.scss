@@ -5,7 +5,7 @@
     font-size: 20px;
     border-radius: 5px;
     font-family: 'Saira', sans-serif; 
-    text-shadow: 2px 2px  rgb(177, 172, 172);
+    // text-shadow: 2px 2px  rgb(177, 172, 172);
 }
 .firstNav{
     display: flex;
@@ -33,7 +33,7 @@
     background-color: rgb(165, 11, 11);
     box-shadow: 0 0px #666;
     transform: translateY(-6px);
-    text-shadow:2px 2px red;
+    text-shadow:none;
 }
 .loginRegister{
     display: flex;

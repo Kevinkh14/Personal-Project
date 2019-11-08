@@ -3,6 +3,9 @@ import axios from 'axios'
 import {Link,Redirect} from 'react-router-dom'
 import{connect} from "react-redux"
 import {updateUser} from '../redux/userReducer'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+
 // import '../styles/register.css'
 
  class Register extends Component{
@@ -52,10 +55,10 @@ import {updateUser} from '../redux/userReducer'
                         {this.state.triedToClick === true ? <li className ='errorMessage'>Please Fill in all the Fields.</li> : null}
                         {this.state.serverErrorMessage !== "" ? <li className ='errorMessage'>{this.state.serverErrorMessage}</li> : null}
                         <h1 style ={{"fontFamily": "'Saira', sans-serif"}}>Register</h1>
-                        <input placeholder ="Username" name ="username" onChange={this.handleChange}className="username"></input>
-                        <input placeholder="Password" name ="password" onChange={this.handleChange}className="password" type ='password'></input>
-                        <input placeholder ="Email" name ="email" onChange={this.handleChange}className = "email"></input>
-                        <button onClick ={this.handleRegister} className="signUP">Register</button>
+                        <TextField label ="Username" name ="username" onChange={this.handleChange}className="username"></TextField>
+                        <TextField label="Password" name ="password" onChange={this.handleChange}className="password" type ='password'></TextField>
+                        <TextField label ="Email" name ="email" onChange={this.handleChange}className = "email"></TextField>
+                        <Button variant = 'contained' color = 'secondary'onClick ={this.handleRegister} className="signUP">Register</Button>
                     </div>
                 </div>
                 

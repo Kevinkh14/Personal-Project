@@ -6,6 +6,11 @@ import Post from './Post'
 import Threads from './Threads'
 import {connect} from 'react-redux'
 import {updateUser} from '../redux/userReducer'
+import Button from '@material-ui/core/Button'
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Icon from '@material-ui/core/Icon';
+import SaveIcon from '@material-ui/icons/Save';
+import TextField from '@material-ui/core/TextField'
 
 class UserProfile extends Component{
     constructor(props){
@@ -20,7 +25,8 @@ class UserProfile extends Component{
             id:"",
             forumId:"",
             createPostStatus:false,
-            redirect :false
+            redirect :false,
+            profilePicstatus: false
         }
     }
     componentDidMount(){
@@ -63,13 +69,14 @@ class UserProfile extends Component{
            url
         })
         console.log(url)
-        
+        this.setState({profilePicstatus:false})
     }
     checkUploadResult = (error,resultEvent) => {
         if (resultEvent.event === "success") {
             console.log("Picture uploaded successfully")
             console.log(resultEvent.info.url);
             this.setState({url: resultEvent.info.url});
+            this.setState({profilePicstatus:true})
         }
     };
     getUser=()=>{
@@ -98,15 +105,6 @@ class UserProfile extends Component{
                 (error, result) => {
                 this.checkUploadResult(error, result);
                 })
-        // let sortedPosts = this.state.pastPost.sort((a, b) => {
-        //     if(a.post_id < b.post_id) {
-        //         return a
-        //     } else if(b.post_id > a.post_id) {
-        //         return b;
-        //     } else {
-        //         return 0;
-        //     }
-        // })
         return(
             <div className='userProf'>
             
@@ -120,12 +118,19 @@ class UserProfile extends Component{
                             <img className='avatarImg' src ={this.state.url} alt =""/>
                             </div>
                             <h1 className ='usernameh1'>{this.state.username}</h1>
-                            <button className ='pic-but' onClick ={()=>widget.open()}>Add Profile Picture</button>
-                            <button className ='set-but' onClick ={this.handleprofilePic}>Set Profile Picture</button>
+                            <div>
+                                {this.state.profilePicstatus === false?
+                                <>
+                                <Button className ='pic-but' onClick ={()=>widget.open()} startIcon={<CloudUploadIcon/>}> Edit Profile Picture</Button>
+                                </>
+                                :
+                                <Button className ='set-but' onClick ={this.handleprofilePic}  startIcon={<SaveIcon />}>Save</Button>
+                                }
+                            </div>
                         </div>
                         <div className = 'thread-in-but'>
-                            <input className ='createThread-input' placeholder='Thread Name' onChange ={this.handleForumName}></input>
-                            <button className ='createThread' onClick={this.createForum}>Create Thread</button>
+                            <TextField  label='Thread Name' onChange ={this.handleForumName} required></TextField>
+                            <Button variant ='contained' color = 'default' className ='createThread' onClick={this.createForum}>Create Thread</Button>
                         </div>
                         <li className ='joined'>Joined Threads</li>
                         <div>{this.state.pastThreads.map((individualThreads,i)=>{

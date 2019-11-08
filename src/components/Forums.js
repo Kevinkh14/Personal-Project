@@ -3,6 +3,11 @@ import UserNav from './UserNav'
 import '../styles/userHome.css'
 import axios from 'axios'
 import Post from './Post'
+import Button from '@material-ui/core/Button'
+import Modal from '@material-ui/core/Modal'
+import Fade from '@material-ui/core/Fade'
+import Backdrop from '@material-ui/core/Backdrop'
+import TextField from '@material-ui/core/TextField'
 
 
 export default class Forums extends Component{
@@ -12,7 +17,8 @@ export default class Forums extends Component{
             content:"",
             allPost:[],
             url:"",
-            forumid:""
+            forumid:"",
+            createPost:false
         }
 
     }
@@ -41,6 +47,12 @@ export default class Forums extends Component{
             console.log(response.data)
             this.setState({allPost:response.data})
         })           
+    }
+    handleOpen =()=>{
+        this.setState({createPost:true})
+    }
+    handleClose =()=>{
+        this.setState({createPost:false})
     }
   
 
@@ -87,9 +99,30 @@ export default class Forums extends Component{
                     </div>
                     <footer className ='foot'>.</footer>
                     <div className = 'create-post'>
-                        <input placeholder ='Create Post' onChange={this.handleChangeOfPost} style={{"cursor":"text"}}></input>
-                            <button className ='create-post-but' onClick ={this.handlePost}>Create Post</button>
-                        <button onClick ={()=>widget.open()}>add pic</button>
+                        <Button variant = 'contained' color ='primary' onClick ={this.handleOpen}> Create post </Button>
+                        <Modal
+                         aria-labelledby="simple-modal-title"
+                         aria-describedby="simple-modal-description"
+                         open={this.state.createPost}
+                         onClose={this.handleClose}
+                         closeAfterTransition
+                         BackdropComponent={Backdrop}
+                         BackdropProps ={{
+                             timeout: 500,
+                         }} >
+                             <Fade in={this.state.createPost}>
+                                 <div className = 'create'>
+                                    <img className = 'thumnail' src ={this.state.url} alt =""/>
+                                    <div className = 'create-content'>
+                                        <div className ='create-input'>
+                                            <TextField variant ='outlined' className ='create-input' label = 'Create Post' onChange={this.handleChangeOfPost} style={{"cursor":"text"}}value ={this.state.content}></TextField>
+                                        </div>
+                                        <Button variant = 'contained' className='add-pic-but' onClick ={()=>widget.open()}>add pic</Button>
+                                        <Button variant = 'contained' color ='primary' className ='create-post-but' onClick ={this.handlePost}>Post</Button>
+                                    </div>
+                                </div>
+                             </Fade>
+                        </Modal>
                     </div>
                 </div>
             </div>

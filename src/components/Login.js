@@ -3,6 +3,8 @@ import {Link,Redirect} from 'react-router-dom'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {updateUser} from '../redux/userReducer'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 // import '../styles/login.css'
 
 
@@ -51,9 +53,9 @@ import {updateUser} from '../redux/userReducer'
                     <div className ='inputs'>
                         {this.state.serverErrorMessage !== "" ? <li className ='errorMessage'>{this.state.serverErrorMessage}</li> : null}
                         <h1 style ={{"fontFamily": "'Saira', sans-serif"}}>Login</h1>
-                        <input placeholder="Username" name = "username" onChange ={this.handleChange} className ='user-name' type='text'></input>
-                        <input placeholder="Password" name ="password" onChange ={this.handleChange} className ='pass-word' type ='password'></input>
-                        <button onClick ={this.handleLoginClick} className ="loginBut">Login</button>
+                        <TextField label="Username" name = "username" onChange ={this.handleChange} className ='user-name' type='text'></TextField>
+                        <TextField label="Password" name ="password" onChange ={this.handleChange} className ='pass-word' type ='password'></TextField>
+                        <Button variant = 'contained' color  = "primary" onClick ={this.handleLoginClick} className ="loginBut">Login</Button>
                     </div>
                 </div>
                 
