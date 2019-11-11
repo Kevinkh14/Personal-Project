@@ -6,6 +6,7 @@ const session = require ('express-session')
 const {registerUser,loginUser,logOut}=require('./controllers/authController')
 const {addPost,getAllPost,getNonUserPost,deletePost,getPastPost,editPost,addProfPic,getProfPic,addLike,deleteLike} = require('./controllers/postController')
 const {addForum,getforumPost,getPastThreads,postOnForum,getAllThreads} = require ('./controllers/forumController')
+const {getComments, addComment} = require ('./controllers/commentController')
 
 const app = express()
 
@@ -32,13 +33,14 @@ app.use(session({
 
 
 
-
+//auth
 app.post("/auth/register", registerUser)
 app.post("/auth/login", loginUser)
 app.get("/auth/logout",logOut)
 app.get("/auth/user", (req, res) => {
     res.status(200).json(req.session.user);
 })
+//post
 app.post("/api/post",addPost)
 app.get("/api/AllPost",getAllPost)
 app.get("/api/user/post",getPastPost)
@@ -46,17 +48,24 @@ app.get("/api/getNonUserPost",getNonUserPost)
 app.put("/api/post/:id",editPost)
 app.delete("/api/post/:id",deletePost)
 
+//likes
 app.post("/api/like/:postid",addLike)
 app.put("/api/like/:postid",deleteLike)
 
+//profpix
 app.post('/api/profile',addProfPic)
 app.get('/api/profile',getProfPic)
 
+//threads
 app.get("/api/pastThreads",getPastThreads)
 app.get("/api/allThreads",getAllThreads )
 app.post("/api/forum/",addForum)
 app.get("/api/forumPost/:forumid",getforumPost)
 app.post("/api/forumPost/:forumid",postOnForum)
+
+//comments
+app.get("/api/comments/:postid", getComments)
+app.post("/api/comment/:postid", addComment)
 
 
 app.get('*', (req, res)=>{

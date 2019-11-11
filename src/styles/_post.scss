@@ -121,7 +121,7 @@
     flex-direction: row;
     align-items: center;
     align-items: flex-end;
-    justify-content: center;
+    // justify-content: center;
     width:100px;
 }
 .profPic{
@@ -135,6 +135,36 @@
     justify-content: space-between;
     align-items: center;
     position: static;
+}
+.comment-container{
+    background: white;
+}
+.modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comments{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 30vw;
+    max-height:50vw;
+    
+}
+.comment-btn{
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+}
+.comment-content{
+    height: 300px;
+    overflow: auto;
+}
+.comment-input{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 @media(max-width:900px){
