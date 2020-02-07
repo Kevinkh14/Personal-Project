@@ -3,7 +3,7 @@ insert into comments
 values 
 ($1,$2,$3);
 
-SELECT comments.comment, users.username, posts.post_id, users.id, comments.post_id
+SELECT comments.comment, users.username, posts.post_id, users.id, comments.post_id,users.avatar_img_url
 FROM users
 inner join comments 
 on users.id = comments.user_id
