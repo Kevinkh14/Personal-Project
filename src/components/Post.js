@@ -17,7 +17,7 @@ class Post extends Component {
       inputField: "",
       comment: false,
       commentContent: "",
-      allComments: []
+      allComments: [],
       // profPic:""
     };
   }
@@ -29,24 +29,24 @@ class Post extends Component {
     this.setState({ editStatus: false });
     axios
       .put(`/api/post/${this.props.id}`, { content: this.state.inputField })
-      .then(response => {
+      .then((response) => {
         this.props.update(response.data);
       });
   };
   handleDelete = () => {
-    axios.delete(`/api/post/${this.props.id}`).then(response => {
+    axios.delete(`/api/post/${this.props.id}`).then((response) => {
       this.props.update(response.data);
     });
   };
   handleLike = () => {
-    axios.post(`/api/like/${this.props.postid}`).then(res => {
+    axios.post(`/api/like/${this.props.postid}`).then((res) => {
       this.props.update(res.data);
       // window.location.reload(true)
       console.log(res.data);
     });
   };
   handleUnlike = () => {
-    axios.put(`/api/like/${this.props.postid}`).then(response => {
+    axios.put(`/api/like/${this.props.postid}`).then((response) => {
       console.log(response);
       // window.location.reload(true)
       this.props.update(response.data);
@@ -54,7 +54,7 @@ class Post extends Component {
   };
   handleOpen = () => {
     this.setState({ comment: true });
-    axios.get(`/api/comments/${this.props.postid}`).then(response => {
+    axios.get(`/api/comments/${this.props.postid}`).then((response) => {
       this.setState({ allComments: response.data });
       console.log(response.data);
     });
@@ -65,13 +65,13 @@ class Post extends Component {
   handleComment = () => {
     axios
       .post(`/api/comment/${this.props.postid}`, {
-        content: this.state.commentContent
+        content: this.state.commentContent,
       })
       .then(() => {
         console.log(this.state.commentContent);
       });
   };
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ commentContent: e.target.value });
     console.log(e.target.value);
   };
@@ -84,7 +84,7 @@ class Post extends Component {
           {this.state.editStatus === false ? (
             <>
               <div className="content-in">
-                <div className="left-of-post">
+                <section className="top">
                   <div className="name-div">
                     <img
                       className="profPic"
@@ -93,36 +93,43 @@ class Post extends Component {
                     ></img>
                     <h2 className="name">{this.props.username}</h2>
                   </div>
+                </section>
+                <section className="middle">
+                  <div className="text-pic">
+                    <div className="text">
+                      <h1 className="content">{content}</h1>
+                    </div>
+                    <div className="img-div">
+                      <img
+                        className="img-post"
+                        src={this.props.url}
+                        alt=""
+                      ></img>
+                    </div>
+                  </div>
+                </section>
+
+                <section className="bottom">
                   {this.props.onHome === false ? (
                     <>
                       <div className="likes">
-                        <button
-                          className="img-like-but"
-                          onClick={this.handleLike}
-                        >
-                          <img
-                            className="img-like"
-                            src="https://img.icons8.com/cotton/64/000000/facebook-like--v2.png"
-                            alt=""
-                          ></img>
-                        </button>
-                        <h2 className="like-counter">{this.props.likes}</h2>
-                        <button
-                          onClick={this.handleUnlike}
-                          className="unlike-but"
-                        >
-                          <img
-                            className="img-unlike"
-                            src="https://img.icons8.com/windows/32/000000/thumbs-down.png"
-                            alt=""
-                          />
-                        </button>
-                        <button
-                          className="comment-btn"
-                          onClick={this.handleOpen}
-                        >
-                          <i class="far fa-comments"></i>
-                        </button>
+                        <section className="like-icons">
+                          <i
+                            class="fa-solid fa-thumbs-up"
+                            onClick={this.handleLike}
+                          ></i>
+                          <h2 className="like-counter">{this.props.likes}</h2>
+
+                          <i
+                            class="fa-solid fa-thumbs-down"
+                            onClick={this.handleUnlike}
+                          ></i>
+
+                          <i
+                            class="fa-solid fa-comment"
+                            onClick={this.handleOpen}
+                          ></i>
+                        </section>
                         <div className="modal-div">
                           <Modal
                             className="modal"
@@ -133,7 +140,7 @@ class Post extends Component {
                             closeAfterTransition
                             BackdropComponent={Backdrop}
                             BackdropProps={{
-                              timeout: 500
+                              timeout: 500,
                             }}
                           >
                             <Fade in={this.state.comment}>
@@ -183,16 +190,7 @@ class Post extends Component {
                       <h2 className="like-counter">{this.props.likes}</h2>
                     </div>
                   )}
-                </div>
-
-                <div className="text-pic">
-                  <div className="text">
-                    <h1 className="content">{content}</h1>
-                  </div>
-                  <div className="img-div">
-                    <img className="img-post" src={this.props.url} alt=""></img>
-                  </div>
-                </div>
+                </section>
               </div>
             </>
           ) : (
@@ -200,7 +198,7 @@ class Post extends Component {
               <input
                 className={"input-edit"}
                 defaultValue={content}
-                onChange={e => this.setState({ inputField: e.target.value })}
+                onChange={(e) => this.setState({ inputField: e.target.value })}
               ></input>
             </>
           )}

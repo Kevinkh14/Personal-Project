@@ -18,22 +18,22 @@ export default class UserHome extends Component {
       url: "",
       like: "",
       allThreads: [],
-      createPost: false
+      createPost: false,
     };
   }
   componentDidMount() {
     this.fetchPost();
     this.getAllThreads();
   }
-  handleChangeOfPost = e => {
+  handleChangeOfPost = (e) => {
     this.setState({ content: e.target.value });
   };
-  handlePost = e => {
+  handlePost = (e) => {
     e.preventDefault();
     axios
       .post("/api/post", {
         content: this.state.content,
-        url: this.state.url
+        url: this.state.url,
       })
       .then(
         () => {
@@ -44,16 +44,16 @@ export default class UserHome extends Component {
       );
     this.setState({ createPost: false });
   };
-  update = allPost => {
+  update = (allPost) => {
     this.setState({ allPost: allPost });
   };
   fetchPost = () => {
-    axios.get("/api/AllPost").then(response => {
+    axios.get("/api/AllPost").then((response) => {
       this.setState({ allPost: response.data });
     });
   };
   getAllThreads = () => {
-    axios.get("/api/allThreads").then(response => {
+    axios.get("/api/allThreads").then((response) => {
       this.setState({ allThreads: response.data });
     });
   };
@@ -76,7 +76,7 @@ export default class UserHome extends Component {
       {
         cloudName: "kevin14",
         uploadPreset: "zfjpjtrr",
-        sources: ["local", "url", "dropbox", "facebook", "instagram"]
+        sources: ["local", "url", "dropbox", "facebook", "instagram"],
       },
       (error, result) => {
         this.checkUploadResult(error, result);
@@ -90,12 +90,14 @@ export default class UserHome extends Component {
           <div>
             {this.state.allThreads.map((individualThreads, index) => {
               return (
-                <Threads
-                  forum={individualThreads.forum_name}
-                  forumid={individualThreads.forum_id}
-                  updateThreads={this.updateThreads}
-                  key={index}
-                />
+                <div className=" thread-list">
+                  <Threads
+                    forum={individualThreads.forum_name}
+                    forumid={individualThreads.forum_id}
+                    updateThreads={this.updateThreads}
+                    key={index}
+                  />
+                </div>
               );
             })}
           </div>
@@ -138,7 +140,7 @@ export default class UserHome extends Component {
               closeAfterTransition
               BackdropComponent={Backdrop}
               BackdropProps={{
-                timeout: 500
+                timeout: 500,
               }}
             >
               <Fade in={this.state.createPost}>

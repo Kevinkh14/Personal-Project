@@ -21,7 +21,8 @@
     font-size: 20px;
 }
 .create{
-    background: white;
+    background: #303339;
+    border-radius: 5px;
     position: fixed;
     bottom:5vh;
     left:30%;
@@ -65,19 +66,30 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background: white;
+    background: #303339;
+    border-radius: 5px;
     height:50vh;
     width: 25vw;
     position: fixed;
     top:20vh;
     margin-left:30px;
     overflow: auto;
-    box-shadow: 2px 2px 2px 2px rgb(146, 139, 139);
+    
+}
+.thread-list{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+a {
+    text-decoration: none;
 }
 .allThreads-h1{
     border-bottom: solid 2px black;
     width: 380px;
     font-family: 'Saira', sans-serif;
+    color: white;
 }
 .thumnail{
     width: 300px;

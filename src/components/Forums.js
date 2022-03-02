@@ -18,34 +18,34 @@ export default class Forums extends Component {
       url: "",
       forumid: "",
       createPost: false,
-      empty: ""
+      empty: "",
     };
   }
   componentDidMount() {
     this.fetchPost();
   }
-  handleChangeOfPost = e => {
+  handleChangeOfPost = (e) => {
     this.setState({ content: e.target.value });
   };
-  handlePost = e => {
+  handlePost = (e) => {
     e.preventDefault();
     console.log(this.state.url);
     axios.post(`/api/forumPost/${this.props.match.params.forumId}`, {
       content: this.state.content,
-      url: this.state.url
+      url: this.state.url,
     });
     this.fetchPost();
     window.location.reload(true);
   };
-  update = allPost => {
+  update = (allPost) => {
     this.setState({ allPost: allPost });
   };
   fetchPost = () => {
     axios
       .get(`/api/forumPost/${this.props.match.params.forumId}`)
-      .then(response => {
+      .then((response) => {
         if (response.data.length == 0) {
-          this.setState({empty:["Hmmm its very quiet... too quiet"]})
+          this.setState({ empty: ["Hmmm its very quiet... too quiet"] });
         } else {
           console.log(response.data);
           this.setState({ allPost: response.data });
@@ -72,7 +72,7 @@ export default class Forums extends Component {
       {
         cloudName: "kevin14",
         uploadPreset: "zfjpjtrr",
-        sources: ["local", "url", "dropbox", "facebook", "instagram"]
+        sources: ["local", "url", "dropbox", "facebook", "instagram"],
       },
       (error, result) => {
         this.checkUploadResult(error, result);
@@ -84,7 +84,7 @@ export default class Forums extends Component {
         <UserNav />
         <div className="userHome">
           <div className="post-div">
-              <h1 className = 'empty-thread'>{this.state.empty}</h1>
+            <h1 className="empty-thread">{this.state.empty}</h1>
             {this.state.allPost.map((individualPost, index) => {
               return (
                 <>
@@ -120,7 +120,7 @@ export default class Forums extends Component {
               closeAfterTransition
               BackdropComponent={Backdrop}
               BackdropProps={{
-                timeout: 500
+                timeout: 500,
               }}
             >
               <Fade in={this.state.createPost}>

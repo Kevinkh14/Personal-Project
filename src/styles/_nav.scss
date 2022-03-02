@@ -5,7 +5,7 @@
     font-size: 20px;
     border-radius: 5px;
     font-family: 'Saira', sans-serif; 
-    // text-shadow: 2px 2px  rgb(177, 172, 172);
+    color: white;
 }
 .firstNav{
     display: flex;
@@ -16,6 +16,7 @@
     position: fixed;
     top:0;
     height: 80px;
+    background-color: black
 }
 .login{
    @include login-reg();
@@ -50,7 +51,7 @@
     font-size:40px;
     font-family: 'Orbitron', sans-serif;
     outline: none;
-    text-shadow: 2px 2px  rgb(177, 172, 172);
+    color: white;
 }
 .imgone{
     width:60px;
